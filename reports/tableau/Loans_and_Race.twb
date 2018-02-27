@@ -1,0 +1,1933 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.18.0210.2209                               -->
+<workbook source-build='10.5.1 (10500.18.0210.2209)' source-platform='win' version='10.5' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='hmda_lar+ (reference)' inline='true' name='federated.1cyfii71ur71or1es0vig1bfnaf1' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='athena.us-east-1.amazonaws.com' name='athena.0drrbwb03w5y1n12zpy6d0zmvhe1'>
+            <connection class='athena' dbname='AwsDataCatalog' one-time-sql='' port='443' schema='reference' server='athena.us-east-1.amazonaws.com' username='AKIAJENNFFUTQL54ITHA' warehouse='s3://aws-athena-query-results-datalake-poc/'>
+              <connection-customization class='athena' enabled='false' version='10.5'>
+                <vendor name='athena' />
+                <driver name='athena' />
+                <customizations>
+                  <customization name='CAP_AUTH_DB_IMPERSONATE' value='no' />
+                  <customization name='CAP_AUTH_KERBEROS_IMPERSONATE' value='no' />
+                  <customization name='CAP_CONNECT_STORED_PROCEDURE' value='no' />
+                  <customization name='CAP_CREATE_TEMP_TABLES' value='no' />
+                  <customization name='CAP_DATASERVER_MAGIC_NUMBER' value='no' />
+                  <customization name='CAP_DEFERS_CONNECTION_VERIFICATION' value='no' />
+                  <customization name='CAP_DISABLE_EXTRACT_TABLE_INDEXING' value='no' />
+                  <customization name='CAP_EQUIJOINS_ONLY' value='no' />
+                  <customization name='CAP_FAST_METADATA' value='yes' />
+                  <customization name='CAP_GREENPLUM_TRUST_METADATA_CONTAINSNULL' value='no' />
+                  <customization name='CAP_HIVE_FIX_METADATA_NAMES' value='no' />
+                  <customization name='CAP_INDEX_TEMP_TABLES' value='no' />
+                  <customization name='CAP_INSERT_TEMP_EXEC_STORED_PROCEDURE' value='no' />
+                  <customization name='CAP_LOCAL_ALIASES_CASE_INSENSITIVE' value='no' />
+                  <customization name='CAP_ODBC_ALWAYS_THROW_CONNECT_ERRORS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_DATETIME_AS_CHAR' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_DATE_AS_CHAR' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_MAX_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_MEDIUM_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_SIGNED' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_SMALL_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_INT64' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_PREFERRED_TYPES' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_WIDE_CHAR' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_DYNAMIC' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_FORWARD_ONLY' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_KEYSET_DRIVEN' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_STATIC' value='no' />
+                  <customization name='CAP_ODBC_DRIVER_HIVE_ASSUME_LATEST' value='no' />
+                  <customization name='CAP_ODBC_ERROR_IGNORE_FALSE_ALARM' value='no' />
+                  <customization name='CAP_ODBC_FETCH_BUFFERS_RESIZABLE' value='no' />
+                  <customization name='CAP_ODBC_FETCH_BUFFERS_SIZE_MASSIVE' value='no' />
+                  <customization name='CAP_ODBC_FETCH_CONTINUE_ON_ERROR' value='no' />
+                  <customization name='CAP_ODBC_FORCE_SINGLE_ROW_BINDING' value='no' />
+                  <customization name='CAP_ODBC_METADATA_STRING_LENGTH_UNKNOWN' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLPRIMARYKEYS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLSTATISTICS_API' value='no' />
+                  <customization name='CAP_ODBC_REBIND_SKIP_UNBIND' value='no' />
+                  <customization name='CAP_ODBC_TRIM_VARCHAR_PADDING' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_AUTO' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_BATCH' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_EACH' value='no' />
+                  <customization name='CAP_ODBC_USE_NATIVE_PROTOCOL' value='no' />
+                  <customization name='CAP_QUERY_ALLOW_PARTIAL_AGGREGATION' value='yes' />
+                  <customization name='CAP_QUERY_ALWAYS_USE_AQ_CACHE' value='no' />
+                  <customization name='CAP_QUERY_BLENDING_ALWAYS_USE_LOCAL_MAPPING_TABLES' value='no' />
+                  <customization name='CAP_QUERY_BLENDING_PREFER_LOCAL_MAPPING_TABLES' value='yes' />
+                  <customization name='CAP_QUERY_BLENDING_REMOTE_MAPPING_TABLES' value='yes' />
+                  <customization name='CAP_QUERY_BOOLEXPR_TO_INTEXPR' value='no' />
+                  <customization name='CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL' value='no' />
+                  <customization name='CAP_QUERY_EMPTY_DOMAIN_TOP' value='no' />
+                  <customization name='CAP_QUERY_FORCE_AGGREGATE_MEASURES' value='no' />
+                  <customization name='CAP_QUERY_GROUP_BY_ALIAS' value='no' />
+                  <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='no' />
+                  <customization name='CAP_QUERY_HAVING_REQUIRES_GROUP_BY' value='no' />
+                  <customization name='CAP_QUERY_HAVING_UNSUPPORTED' value='no' />
+                  <customization name='CAP_QUERY_JOIN_ACROSS_SCHEMAS' value='yes' />
+                  <customization name='CAP_QUERY_JOIN_ASSUME_CONSTRAINED' value='no' />
+                  <customization name='CAP_QUERY_JOIN_PUSH_DOWN_CONDITION_EXPRESSIONS' value='no' />
+                  <customization name='CAP_QUERY_JOIN_REQUIRES_SCOPE' value='no' />
+                  <customization name='CAP_QUERY_JOIN_REQUIRES_SUBQUERY' value='no' />
+                  <customization name='CAP_QUERY_NULL_REQUIRES_CAST' value='yes' />
+                  <customization name='CAP_QUERY_RECOMPILE_FAILED_QUERY' value='no' />
+                  <customization name='CAP_QUERY_SELECT_ALIASES_SORTED' value='no' />
+                  <customization name='CAP_QUERY_SORT_BY' value='yes' />
+                  <customization name='CAP_QUERY_SORT_BY_DEGREE' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERIES' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT' value='yes' />
+                  <customization name='CAP_QUERY_SUPPORTS_LODJOINS' value='yes' />
+                  <customization name='CAP_QUERY_SUPPRESS_CHECK_DOMAIN_LITERALS_THRESHOLD' value='no' />
+                  <customization name='CAP_QUERY_SUPPRESS_NULL_CHECK_QUERIES' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no' />
+                  <customization name='CAP_QUERY_TOP_0_METADATA' value='yes' />
+                  <customization name='CAP_QUERY_TOP_N' value='yes' />
+                  <customization name='CAP_QUERY_USE_DOMAIN_RANGES_OPTIMIZATION' value='yes' />
+                  <customization name='CAP_QUERY_USE_QUERY_FUSION' value='yes' />
+                  <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
+                  <customization name='CAP_SELECT_INTO' value='no' />
+                  <customization name='CAP_SELECT_TOP_INTO' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_PREFER_TEMP_TABLE' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_REPAIR_TEMP_TABLE_STRINGS' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_TEMP_TABLE_FROM_BUFFER' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_TEMP_TABLE_FROM_NEW_PROTOCOL' value='no' />
+                  <customization name='CAP_SUPPRESS_CONNECTION_POOLING' value='no' />
+                  <customization name='CAP_SUPPRESS_DISCOVERY_QUERIES' value='no' />
+                  <customization name='CAP_SUPPRESS_GET_SERVER_TIME' value='no' />
+                  <customization name='CAP_SUPPRESS_QUICK_FILTER_ACCELERATION_VIEWS' value='no' />
+                </customizations>
+              </connection-customization>
+            </connection>
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[hmda_lar].[applicant_race_name_1]' />
+                <expression op='[unpivot race_by_state].[race]' />
+              </expression>
+              <expression op='='>
+                <expression op='[hmda_lar].[state_name]' />
+                <expression op='[unpivot race_by_state].[location]' />
+              </expression>
+            </expression>
+          </clause>
+          <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='hmda_lar' table='[hmda].[hmda_lar]' type='table' />
+          <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='unpivot race_by_state' type='text'>SELECT location, &apos;White&apos; as race, white + hispanic as fraction_of_population&#13;&#10;FROM reference.race_by_state&#13;&#10;UNION &#13;&#10;SELECT location, &apos;Black or African American&apos; as race, black as fraction_of_population&#13;&#10;FROM reference.race_by_state&#13;&#10;UNION&#13;&#10;SELECT location, &apos;Asian&apos; as race, asian as fraction_of_population&#13;&#10;FROM reference.race_by_state&#13;&#10;UNION&#13;&#10;SELECT location, &apos;Native Hawaiian or Other Pacific Islander&apos; as race, pacific_islander as fraction_of_population&#13;&#10;FROM reference.race_by_state&#13;&#10;UNION&#13;&#10;SELECT location, &apos;American Indian or Alaska Native&apos; as race, american_indian as fraction_of_population&#13;&#10;FROM reference.race_by_state</relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>action_taken</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[action_taken]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>action_taken</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>action_taken_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[action_taken_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>action_taken_name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>agency_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[agency_code]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>agency_code</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>agency_abbr</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[agency_abbr]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>agency_abbr</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>agency_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[agency_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>agency_name</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_ethnicity</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_ethnicity]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_ethnicity</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_ethnicity_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_ethnicity_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_ethnicity_name</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_income_000s</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_income_000s]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_income_000s</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_1</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_1</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_2</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_2</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_3</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_3</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_4</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_4</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_5</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_5</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_1</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_2</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_3</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_4</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_4</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_5</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_5</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_sex</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_sex]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_sex</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_sex_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_sex_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_sex_name</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>application_date_indicator</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[application_date_indicator]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>application_date_indicator</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>census_tract_number</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[census_tract_number]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>census_tract_number</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_ethnicity</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_ethnicity]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_ethnicity</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_ethnicity_name</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_ethnicity_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_ethnicity_name</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_1</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_1</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_2</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_2</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_3</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_3</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_4</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_4</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_5</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_5</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_1</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_2</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_3</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_4</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_4</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_5</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_5</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_sex</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_sex]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_sex</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_sex_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_sex_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_sex_name</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[county_code]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>county_code</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[county_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>county_name</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_1</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[denial_reason_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_1</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_2</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[denial_reason_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_2</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_3</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[denial_reason_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_3</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_name_1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[denial_reason_name_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_name_1</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_name_2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[denial_reason_name_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_name_2</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_name_3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[denial_reason_name_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_name_3</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>edit_status</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[edit_status]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>edit_status</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>edit_status_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[edit_status_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>edit_status_name</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hoepa_status</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[hoepa_status]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>hoepa_status</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hoepa_status_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[hoepa_status_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>hoepa_status_name</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lien_status</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[lien_status]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>lien_status</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lien_status_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[lien_status_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>lien_status_name</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_purpose</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[loan_purpose]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_purpose</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_purpose_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[loan_purpose_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_purpose_name</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[loan_type]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_type</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_type_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[loan_type_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_type_name</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>msamd</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[msamd]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>msamd</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>msamd_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[msamd_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>msamd_name</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>owner_occupancy</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[owner_occupancy]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>owner_occupancy</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>owner_occupancy_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[owner_occupancy_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>owner_occupancy_name</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>preapproval</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[preapproval]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>preapproval</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>preapproval_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[preapproval_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>preapproval_name</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[property_type]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>property_type</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_type_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[property_type_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>property_type_name</remote-alias>
+            <ordinal>62</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchaser_type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[purchaser_type]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>purchaser_type</remote-alias>
+            <ordinal>63</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchaser_type_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[purchaser_type_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>purchaser_type_name</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>respondent_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[respondent_id]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>respondent_id</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sequence_number</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[sequence_number]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>sequence_number</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[state_code]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>state_code</remote-alias>
+            <ordinal>67</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_abbr</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[state_abbr]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>state_abbr</remote-alias>
+            <ordinal>68</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[state_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>state_name</remote-alias>
+            <ordinal>69</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hud_median_family_income</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[hud_median_family_income]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>hud_median_family_income</remote-alias>
+            <ordinal>70</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_amount_000s</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[loan_amount_000s]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_amount_000s</remote-alias>
+            <ordinal>71</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_1_to_4_family_units</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[number_of_1_to_4_family_units]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>number_of_1_to_4_family_units</remote-alias>
+            <ordinal>72</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_owner_occupied_units</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[number_of_owner_occupied_units]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>number_of_owner_occupied_units</remote-alias>
+            <ordinal>73</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>minority_population</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[minority_population]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>minority_population</remote-alias>
+            <ordinal>74</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>9</precision>
+            <scale>5</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>population</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[population]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>population</remote-alias>
+            <ordinal>75</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rate_spread</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[rate_spread]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>rate_spread</remote-alias>
+            <ordinal>76</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>9</precision>
+            <scale>5</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tract_to_msamd_income</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[tract_to_msamd_income]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>tract_to_msamd_income</remote-alias>
+            <ordinal>77</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>14</precision>
+            <scale>10</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>as_of_year</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[as_of_year]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>as_of_year</remote-alias>
+            <ordinal>78</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[location]</local-name>
+            <parent-name>[unpivot race_by_state]</parent-name>
+            <remote-alias>location</remote-alias>
+            <ordinal>80</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>race</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[race]</local-name>
+            <parent-name>[unpivot race_by_state]</parent-name>
+            <remote-alias>race</remote-alias>
+            <ordinal>81</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fraction_of_population</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[fraction_of_population]</local-name>
+            <parent-name>[unpivot race_by_state]</parent-name>
+            <remote-alias>fraction_of_population</remote-alias>
+            <ordinal>82</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>4</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Calculation1' datatype='real' name='[Calculation_195343672586870785]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Action Taken' datatype='integer' name='[action_taken]' role='measure' type='quantitative' />
+      <column caption='Action Taken Name' datatype='string' name='[action_taken_name]' role='dimension' type='nominal' />
+      <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+      <column caption='Agency Code' datatype='integer' name='[agency_code]' role='dimension' type='ordinal' />
+      <column caption='Agency Name' datatype='string' name='[agency_name]' role='dimension' type='nominal' />
+      <column caption='Applicant Ethnicity' datatype='integer' name='[applicant_ethnicity]' role='measure' type='quantitative' />
+      <column caption='Applicant Ethnicity Name' datatype='string' name='[applicant_ethnicity_name]' role='dimension' type='nominal' />
+      <column caption='Applicant Income 000S' datatype='integer' name='[applicant_income_000s]' role='measure' type='quantitative' />
+      <column caption='Applicant Race 1' datatype='integer' name='[applicant_race_1]' role='measure' type='quantitative' />
+      <column caption='Applicant Race 2' datatype='integer' name='[applicant_race_2]' role='measure' type='quantitative' />
+      <column caption='Applicant Race 3' datatype='integer' name='[applicant_race_3]' role='measure' type='quantitative' />
+      <column caption='Applicant Race 4' datatype='integer' name='[applicant_race_4]' role='measure' type='quantitative' />
+      <column caption='Applicant Race 5' datatype='integer' name='[applicant_race_5]' role='measure' type='quantitative' />
+      <column caption='Applicant Race Name 1' datatype='string' name='[applicant_race_name_1]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 2' datatype='string' name='[applicant_race_name_2]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 3' datatype='string' name='[applicant_race_name_3]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 4' datatype='string' name='[applicant_race_name_4]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 5' datatype='string' name='[applicant_race_name_5]' role='dimension' type='nominal' />
+      <column caption='Applicant Sex' datatype='integer' name='[applicant_sex]' role='measure' type='quantitative' />
+      <column caption='Applicant Sex Name' datatype='string' name='[applicant_sex_name]' role='dimension' type='nominal' />
+      <column caption='Application Date Indicator' datatype='integer' name='[application_date_indicator]' role='measure' type='quantitative' />
+      <column caption='As Of Year' datatype='string' name='[as_of_year]' role='dimension' type='nominal' />
+      <column caption='Census Tract Number' datatype='string' name='[census_tract_number]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Ethnicity' datatype='integer' name='[co_applicant_ethnicity]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Ethnicity Name' datatype='integer' name='[co_applicant_ethnicity_name]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Race 1' datatype='integer' name='[co_applicant_race_1]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Race 2' datatype='integer' name='[co_applicant_race_2]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Race 3' datatype='integer' name='[co_applicant_race_3]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Race 4' datatype='integer' name='[co_applicant_race_4]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Race 5' datatype='integer' name='[co_applicant_race_5]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Race Name 1' datatype='string' name='[co_applicant_race_name_1]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 2' datatype='string' name='[co_applicant_race_name_2]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 3' datatype='string' name='[co_applicant_race_name_3]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 4' datatype='string' name='[co_applicant_race_name_4]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 5' datatype='string' name='[co_applicant_race_name_5]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Sex' datatype='integer' name='[co_applicant_sex]' role='measure' type='quantitative' />
+      <column caption='Co Applicant Sex Name' datatype='string' name='[co_applicant_sex_name]' role='dimension' type='nominal' />
+      <column caption='County Code' datatype='integer' name='[county_code]' role='dimension' type='ordinal' />
+      <column caption='County Name' datatype='string' name='[county_name]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Denial Reason 1' datatype='integer' name='[denial_reason_1]' role='measure' type='quantitative' />
+      <column caption='Denial Reason 2' datatype='integer' name='[denial_reason_2]' role='measure' type='quantitative' />
+      <column caption='Denial Reason 3' datatype='integer' name='[denial_reason_3]' role='measure' type='quantitative' />
+      <column caption='Denial Reason Name 1' datatype='string' name='[denial_reason_name_1]' role='dimension' type='nominal' />
+      <column caption='Denial Reason Name 2' datatype='string' name='[denial_reason_name_2]' role='dimension' type='nominal' />
+      <column caption='Denial Reason Name 3' datatype='string' name='[denial_reason_name_3]' role='dimension' type='nominal' />
+      <column caption='Edit Status' datatype='integer' name='[edit_status]' role='measure' type='quantitative' />
+      <column caption='Edit Status Name' datatype='string' name='[edit_status_name]' role='dimension' type='nominal' />
+      <column datatype='real' name='[fraction_of_population]' role='measure' type='quantitative' />
+      <column caption='Hoepa Status' datatype='integer' name='[hoepa_status]' role='measure' type='quantitative' />
+      <column caption='Hoepa Status Name' datatype='string' name='[hoepa_status_name]' role='dimension' type='nominal' />
+      <column caption='Hud Median Family Income' datatype='integer' name='[hud_median_family_income]' role='measure' type='quantitative' />
+      <column caption='Lien Status' datatype='integer' name='[lien_status]' role='measure' type='quantitative' />
+      <column caption='Lien Status Name' datatype='string' name='[lien_status_name]' role='dimension' type='nominal' />
+      <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+      <column caption='Loan Purpose' datatype='integer' name='[loan_purpose]' role='measure' type='quantitative' />
+      <column caption='Loan Purpose Name' datatype='string' name='[loan_purpose_name]' role='dimension' type='nominal' />
+      <column caption='Loan Type' datatype='integer' name='[loan_type]' role='measure' type='quantitative' />
+      <column caption='Loan Type Name' datatype='string' name='[loan_type_name]' role='dimension' type='nominal' />
+      <column caption='Minority Population' datatype='real' name='[minority_population]' role='measure' type='quantitative' />
+      <column caption='Msamd' datatype='string' name='[msamd]' role='dimension' type='nominal' />
+      <column caption='Msamd Name' datatype='string' name='[msamd_name]' role='dimension' type='nominal' />
+      <column caption='Number Of 1 To 4 Family Units' datatype='integer' name='[number_of_1_to_4_family_units]' role='measure' type='quantitative' />
+      <column caption='Number Of Owner Occupied Units' datatype='integer' name='[number_of_owner_occupied_units]' role='measure' type='quantitative' />
+      <column caption='Owner Occupancy' datatype='integer' name='[owner_occupancy]' role='measure' type='quantitative' />
+      <column caption='Owner Occupancy Name' datatype='string' name='[owner_occupancy_name]' role='dimension' type='nominal' />
+      <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
+      <column caption='Preapproval' datatype='integer' name='[preapproval]' role='measure' type='quantitative' />
+      <column caption='Preapproval Name' datatype='string' name='[preapproval_name]' role='dimension' type='nominal' />
+      <column caption='Property Type' datatype='integer' name='[property_type]' role='measure' type='quantitative' />
+      <column caption='Property Type Name' datatype='string' name='[property_type_name]' role='dimension' type='nominal' />
+      <column caption='Purchaser Type' datatype='integer' name='[purchaser_type]' role='measure' type='quantitative' />
+      <column caption='Purchaser Type Name' datatype='string' name='[purchaser_type_name]' role='dimension' type='nominal' />
+      <column caption='Rate Spread' datatype='real' name='[rate_spread]' role='measure' type='quantitative' />
+      <column caption='Respondent Id' datatype='integer' name='[respondent_id]' role='dimension' type='ordinal' />
+      <column caption='Sequence Number' datatype='string' name='[sequence_number]' role='dimension' type='nominal' />
+      <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Code' datatype='integer' name='[state_code]' role='dimension' type='ordinal' />
+      <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Tract To Msamd Income' datatype='real' name='[tract_to_msamd_income]' role='measure' type='quantitative' />
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[attr:fraction_of_population:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[fraction_of_population]' derivation='Avg' name='[avg:fraction_of_population:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[loan_amount_000s]' derivation='Sum' name='[cum:sum:loan_amount_000s:qk:4]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[applicant_race_name_1]' derivation='None' name='[none:applicant_race_name_1:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:7]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <layout dim-ordering='alphabetic' dim-percentage='0.446903' measure-ordering='alphabetic' measure-percentage='0.553097' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:Number of Records:qk:2]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:sum:loan_amount_000s:qk:4]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:fraction_of_population:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Applicant Race Name 1' datatype='string' name='[applicant_race_name_1]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' name='[as_of_year]' role='dimension' type='nominal' />
+            <column-instance column='[fraction_of_population]' derivation='Attribute' name='[attr:fraction_of_population:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[cum:sum:loan_amount_000s:qk:4]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Sum' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='CumTotal' />
+            </column-instance>
+            <column datatype='real' name='[fraction_of_population]' role='measure' type='quantitative' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[applicant_race_name_1]' derivation='None' name='[none:applicant_race_name_1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state_name]' derivation='None' name='[none:state_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:7]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:Number of Records:qk:2]&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:sum:loan_amount_000s:qk:4]&quot;</bucket>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;</bucket>
+            </dictionary>
+          </sort>
+          <filter class='quantitative' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]' included-values='non-null' />
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='level-members' level='[none:as_of_year:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]' value='p0.00%' />
+            <format attr='width' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' value='128' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_name:nk] / [federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk])</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</cols>
+        <percentages enabled='false' mode='column-in-pane' />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
