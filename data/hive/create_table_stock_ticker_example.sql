@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE example_stock_ticker(
+CREATE EXTERNAL TABLE stock_ticker_example(
 row_timestamp TIMESTAMP
 , ticker VARCHAR(10)
 , sector VARCHAR(50)
