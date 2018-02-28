@@ -4,7 +4,7 @@ insert overwrite table hmda_lar_snappy partition (as_of_year) select * from hmda
 
 
 set hive.exec.dynamic.partition.mode=nonstrict;
-INSERT OVERWRITE TABLE example_stock_ticker partition (record_date) SELECT 
+INSERT OVERWRITE TABLE stock_ticker.example_stock_ticker partition (record_date) SELECT 
 FROM_UTC_TIMESTAMP(row_timestamp,'UTC') AS row_timestamp 
 , ticker
 , sector
