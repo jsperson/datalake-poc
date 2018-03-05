@@ -86,5 +86,3 @@ OUTPUTFORMAT
   'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
   's3://datalake-poc-data/feeds/hmda/hmda_lar/clean/orc'
-TBLPROPERTIES (
-  'orc.compress'='snappy')
