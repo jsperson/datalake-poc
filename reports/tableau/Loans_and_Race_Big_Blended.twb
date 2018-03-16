@@ -1,0 +1,2851 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.18.0210.2209                               -->
+<workbook source-build='10.5.1 (10500.18.0210.2209)' source-platform='win' version='10.5' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='race_by_state_big (sperson)' inline='true' name='federated.1whtkzv19k2o3a18hkpvc1cyftna' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='athena.us-east-1.amazonaws.com' name='athena.1rp3d6v18c9671100btiw1yiv2t1'>
+            <connection class='athena' dbname='AwsDataCatalog' one-time-sql='' port='443' schema='sperson' server='athena.us-east-1.amazonaws.com' username='AKIAJENNFFUTQL54ITHA' warehouse='s3://aws-athena-query-results-datalake-poc/'>
+              <connection-customization class='athena' enabled='false' version='10.5'>
+                <vendor name='athena' />
+                <driver name='athena' />
+                <customizations>
+                  <customization name='CAP_AUTH_DB_IMPERSONATE' value='no' />
+                  <customization name='CAP_AUTH_KERBEROS_IMPERSONATE' value='no' />
+                  <customization name='CAP_CONNECT_STORED_PROCEDURE' value='no' />
+                  <customization name='CAP_CREATE_TEMP_TABLES' value='no' />
+                  <customization name='CAP_DATASERVER_MAGIC_NUMBER' value='no' />
+                  <customization name='CAP_DEFERS_CONNECTION_VERIFICATION' value='no' />
+                  <customization name='CAP_DISABLE_EXTRACT_TABLE_INDEXING' value='no' />
+                  <customization name='CAP_EQUIJOINS_ONLY' value='no' />
+                  <customization name='CAP_FAST_METADATA' value='yes' />
+                  <customization name='CAP_GREENPLUM_TRUST_METADATA_CONTAINSNULL' value='no' />
+                  <customization name='CAP_HIVE_FIX_METADATA_NAMES' value='no' />
+                  <customization name='CAP_INDEX_TEMP_TABLES' value='no' />
+                  <customization name='CAP_INSERT_TEMP_EXEC_STORED_PROCEDURE' value='no' />
+                  <customization name='CAP_LOCAL_ALIASES_CASE_INSENSITIVE' value='no' />
+                  <customization name='CAP_ODBC_ALWAYS_THROW_CONNECT_ERRORS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_DATETIME_AS_CHAR' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_DATE_AS_CHAR' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_MAX_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_MEDIUM_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_SIGNED' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_SMALL_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_INT64' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_PREFERRED_TYPES' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_WIDE_CHAR' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_DYNAMIC' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_FORWARD_ONLY' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_KEYSET_DRIVEN' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_STATIC' value='no' />
+                  <customization name='CAP_ODBC_DRIVER_HIVE_ASSUME_LATEST' value='no' />
+                  <customization name='CAP_ODBC_ERROR_IGNORE_FALSE_ALARM' value='no' />
+                  <customization name='CAP_ODBC_FETCH_BUFFERS_RESIZABLE' value='no' />
+                  <customization name='CAP_ODBC_FETCH_BUFFERS_SIZE_MASSIVE' value='no' />
+                  <customization name='CAP_ODBC_FETCH_CONTINUE_ON_ERROR' value='no' />
+                  <customization name='CAP_ODBC_FORCE_SINGLE_ROW_BINDING' value='no' />
+                  <customization name='CAP_ODBC_METADATA_STRING_LENGTH_UNKNOWN' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLPRIMARYKEYS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLSTATISTICS_API' value='no' />
+                  <customization name='CAP_ODBC_REBIND_SKIP_UNBIND' value='no' />
+                  <customization name='CAP_ODBC_TRIM_VARCHAR_PADDING' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_AUTO' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_BATCH' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_EACH' value='no' />
+                  <customization name='CAP_ODBC_USE_NATIVE_PROTOCOL' value='no' />
+                  <customization name='CAP_QUERY_ALLOW_PARTIAL_AGGREGATION' value='yes' />
+                  <customization name='CAP_QUERY_ALWAYS_USE_AQ_CACHE' value='no' />
+                  <customization name='CAP_QUERY_BLENDING_ALWAYS_USE_LOCAL_MAPPING_TABLES' value='no' />
+                  <customization name='CAP_QUERY_BLENDING_PREFER_LOCAL_MAPPING_TABLES' value='yes' />
+                  <customization name='CAP_QUERY_BLENDING_REMOTE_MAPPING_TABLES' value='yes' />
+                  <customization name='CAP_QUERY_BOOLEXPR_TO_INTEXPR' value='no' />
+                  <customization name='CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL' value='no' />
+                  <customization name='CAP_QUERY_EMPTY_DOMAIN_TOP' value='no' />
+                  <customization name='CAP_QUERY_FORCE_AGGREGATE_MEASURES' value='no' />
+                  <customization name='CAP_QUERY_GROUP_BY_ALIAS' value='no' />
+                  <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='no' />
+                  <customization name='CAP_QUERY_HAVING_REQUIRES_GROUP_BY' value='no' />
+                  <customization name='CAP_QUERY_HAVING_UNSUPPORTED' value='no' />
+                  <customization name='CAP_QUERY_JOIN_ACROSS_SCHEMAS' value='yes' />
+                  <customization name='CAP_QUERY_JOIN_ASSUME_CONSTRAINED' value='no' />
+                  <customization name='CAP_QUERY_JOIN_PUSH_DOWN_CONDITION_EXPRESSIONS' value='no' />
+                  <customization name='CAP_QUERY_JOIN_REQUIRES_SCOPE' value='no' />
+                  <customization name='CAP_QUERY_JOIN_REQUIRES_SUBQUERY' value='no' />
+                  <customization name='CAP_QUERY_NULL_REQUIRES_CAST' value='no' />
+                  <customization name='CAP_QUERY_RECOMPILE_FAILED_QUERY' value='no' />
+                  <customization name='CAP_QUERY_SELECT_ALIASES_SORTED' value='no' />
+                  <customization name='CAP_QUERY_SORT_BY' value='yes' />
+                  <customization name='CAP_QUERY_SORT_BY_DEGREE' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERIES' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT' value='yes' />
+                  <customization name='CAP_QUERY_SUPPORTS_LODJOINS' value='yes' />
+                  <customization name='CAP_QUERY_SUPPRESS_CHECK_DOMAIN_LITERALS_THRESHOLD' value='no' />
+                  <customization name='CAP_QUERY_SUPPRESS_NULL_CHECK_QUERIES' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no' />
+                  <customization name='CAP_QUERY_TOP_0_METADATA' value='yes' />
+                  <customization name='CAP_QUERY_TOP_N' value='yes' />
+                  <customization name='CAP_QUERY_USE_DOMAIN_RANGES_OPTIMIZATION' value='yes' />
+                  <customization name='CAP_QUERY_USE_QUERY_FUSION' value='yes' />
+                  <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
+                  <customization name='CAP_SELECT_INTO' value='no' />
+                  <customization name='CAP_SELECT_TOP_INTO' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_PREFER_TEMP_TABLE' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_REPAIR_TEMP_TABLE_STRINGS' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_TEMP_TABLE_FROM_BUFFER' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_TEMP_TABLE_FROM_NEW_PROTOCOL' value='no' />
+                  <customization name='CAP_SUPPRESS_CONNECTION_POOLING' value='no' />
+                  <customization name='CAP_SUPPRESS_DISCOVERY_QUERIES' value='no' />
+                  <customization name='CAP_SUPPRESS_GET_SERVER_TIME' value='no' />
+                  <customization name='CAP_SUPPRESS_QUICK_FILTER_ACCELERATION_VIEWS' value='no' />
+                </customizations>
+              </connection-customization>
+            </connection>
+          </named-connection>
+        </named-connections>
+        <relation connection='athena.1rp3d6v18c9671100btiw1yiv2t1' name='custom_sql_query' type='text'>SELECT as_of_year, location, &apos;White&apos; as race, white + hispanic as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION &#13;&#10;SELECT as_of_year, location, &apos;Black or African American&apos; as race, black as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION&#13;&#10;SELECT as_of_year, location, &apos;Asian&apos; as race, asian as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION&#13;&#10;SELECT as_of_year, location, &apos;Native Hawaiian or Other Pacific Islander&apos; as race, pacific_islander as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION&#13;&#10;SELECT as_of_year, location, &apos;American Indian or Alaska Native&apos; as race, american_indian as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big</relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>as_of_year</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[as_of_year]</local-name>
+            <parent-name>[custom_sql_query]</parent-name>
+            <remote-alias>as_of_year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[location]</local-name>
+            <parent-name>[custom_sql_query]</parent-name>
+            <remote-alias>location</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>race</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[race]</local-name>
+            <parent-name>[custom_sql_query]</parent-name>
+            <remote-alias>race</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fraction_of_population</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[fraction_of_population]</local-name>
+            <parent-name>[custom_sql_query]</parent-name>
+            <remote-alias>fraction_of_population</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>4</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='As Of Year' datatype='string' name='[as_of_year]' role='dimension' type='nominal' />
+      <column caption='Location' datatype='string' name='[location]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.514644' measure-ordering='alphabetic' measure-percentage='0.485356' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='hmda_lar+ (reference)' inline='true' name='federated.1cyfii71ur71or1es0vig1bfnaf1' version='10.5'>
+      <connection class='federated' tableau-ri='true'>
+        <named-connections>
+          <named-connection caption='athena.us-east-1.amazonaws.com' name='athena.0drrbwb03w5y1n12zpy6d0zmvhe1'>
+            <connection class='athena' dbname='AwsDataCatalog' one-time-sql='' port='443' schema='reference' server='athena.us-east-1.amazonaws.com' username='AKIAJENNFFUTQL54ITHA' warehouse='s3://aws-athena-query-results-datalake-poc/'>
+              <connection-customization class='athena' enabled='false' version='10.5'>
+                <vendor name='athena' />
+                <driver name='athena' />
+                <customizations>
+                  <customization name='CAP_AUTH_DB_IMPERSONATE' value='no' />
+                  <customization name='CAP_AUTH_KERBEROS_IMPERSONATE' value='no' />
+                  <customization name='CAP_CONNECT_STORED_PROCEDURE' value='no' />
+                  <customization name='CAP_CREATE_TEMP_TABLES' value='no' />
+                  <customization name='CAP_DATASERVER_MAGIC_NUMBER' value='no' />
+                  <customization name='CAP_DEFERS_CONNECTION_VERIFICATION' value='no' />
+                  <customization name='CAP_DISABLE_EXTRACT_TABLE_INDEXING' value='no' />
+                  <customization name='CAP_EQUIJOINS_ONLY' value='no' />
+                  <customization name='CAP_FAST_METADATA' value='yes' />
+                  <customization name='CAP_GREENPLUM_TRUST_METADATA_CONTAINSNULL' value='no' />
+                  <customization name='CAP_HIVE_FIX_METADATA_NAMES' value='no' />
+                  <customization name='CAP_INDEX_TEMP_TABLES' value='no' />
+                  <customization name='CAP_INSERT_TEMP_EXEC_STORED_PROCEDURE' value='no' />
+                  <customization name='CAP_LOCAL_ALIASES_CASE_INSENSITIVE' value='no' />
+                  <customization name='CAP_ODBC_ALWAYS_THROW_CONNECT_ERRORS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_DATETIME_AS_CHAR' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_DATE_AS_CHAR' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_MAX_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_MEDIUM_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_SIGNED' value='no' />
+                  <customization name='CAP_ODBC_BIND_FORCE_SMALL_STRING_BUFFERS' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_INT64' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_PREFERRED_TYPES' value='no' />
+                  <customization name='CAP_ODBC_BIND_SUPPRESS_WIDE_CHAR' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_DYNAMIC' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_FORWARD_ONLY' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_KEYSET_DRIVEN' value='no' />
+                  <customization name='CAP_ODBC_CURSOR_STATIC' value='no' />
+                  <customization name='CAP_ODBC_DRIVER_HIVE_ASSUME_LATEST' value='no' />
+                  <customization name='CAP_ODBC_ERROR_IGNORE_FALSE_ALARM' value='no' />
+                  <customization name='CAP_ODBC_FETCH_BUFFERS_RESIZABLE' value='no' />
+                  <customization name='CAP_ODBC_FETCH_BUFFERS_SIZE_MASSIVE' value='no' />
+                  <customization name='CAP_ODBC_FETCH_CONTINUE_ON_ERROR' value='no' />
+                  <customization name='CAP_ODBC_FORCE_SINGLE_ROW_BINDING' value='no' />
+                  <customization name='CAP_ODBC_METADATA_STRING_LENGTH_UNKNOWN' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLPRIMARYKEYS_API' value='no' />
+                  <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLSTATISTICS_API' value='no' />
+                  <customization name='CAP_ODBC_REBIND_SKIP_UNBIND' value='no' />
+                  <customization name='CAP_ODBC_TRIM_VARCHAR_PADDING' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_AUTO' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_BATCH' value='no' />
+                  <customization name='CAP_ODBC_UNBIND_EACH' value='no' />
+                  <customization name='CAP_ODBC_USE_NATIVE_PROTOCOL' value='no' />
+                  <customization name='CAP_QUERY_ALLOW_PARTIAL_AGGREGATION' value='yes' />
+                  <customization name='CAP_QUERY_ALWAYS_USE_AQ_CACHE' value='no' />
+                  <customization name='CAP_QUERY_BLENDING_ALWAYS_USE_LOCAL_MAPPING_TABLES' value='no' />
+                  <customization name='CAP_QUERY_BLENDING_PREFER_LOCAL_MAPPING_TABLES' value='yes' />
+                  <customization name='CAP_QUERY_BLENDING_REMOTE_MAPPING_TABLES' value='yes' />
+                  <customization name='CAP_QUERY_BOOLEXPR_TO_INTEXPR' value='no' />
+                  <customization name='CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL' value='no' />
+                  <customization name='CAP_QUERY_EMPTY_DOMAIN_TOP' value='no' />
+                  <customization name='CAP_QUERY_FORCE_AGGREGATE_MEASURES' value='no' />
+                  <customization name='CAP_QUERY_GROUP_BY_ALIAS' value='no' />
+                  <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='no' />
+                  <customization name='CAP_QUERY_HAVING_REQUIRES_GROUP_BY' value='no' />
+                  <customization name='CAP_QUERY_HAVING_UNSUPPORTED' value='no' />
+                  <customization name='CAP_QUERY_JOIN_ACROSS_SCHEMAS' value='yes' />
+                  <customization name='CAP_QUERY_JOIN_ASSUME_CONSTRAINED' value='no' />
+                  <customization name='CAP_QUERY_JOIN_PUSH_DOWN_CONDITION_EXPRESSIONS' value='no' />
+                  <customization name='CAP_QUERY_JOIN_REQUIRES_SCOPE' value='no' />
+                  <customization name='CAP_QUERY_JOIN_REQUIRES_SUBQUERY' value='no' />
+                  <customization name='CAP_QUERY_NULL_REQUIRES_CAST' value='yes' />
+                  <customization name='CAP_QUERY_RECOMPILE_FAILED_QUERY' value='no' />
+                  <customization name='CAP_QUERY_SELECT_ALIASES_SORTED' value='no' />
+                  <customization name='CAP_QUERY_SORT_BY' value='yes' />
+                  <customization name='CAP_QUERY_SORT_BY_DEGREE' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERIES' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='yes' />
+                  <customization name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT' value='yes' />
+                  <customization name='CAP_QUERY_SUPPORTS_LODJOINS' value='yes' />
+                  <customization name='CAP_QUERY_SUPPRESS_CHECK_DOMAIN_LITERALS_THRESHOLD' value='no' />
+                  <customization name='CAP_QUERY_SUPPRESS_NULL_CHECK_QUERIES' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no' />
+                  <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no' />
+                  <customization name='CAP_QUERY_TOP_0_METADATA' value='yes' />
+                  <customization name='CAP_QUERY_TOP_N' value='yes' />
+                  <customization name='CAP_QUERY_USE_DOMAIN_RANGES_OPTIMIZATION' value='yes' />
+                  <customization name='CAP_QUERY_USE_QUERY_FUSION' value='yes' />
+                  <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
+                  <customization name='CAP_SELECT_INTO' value='no' />
+                  <customization name='CAP_SELECT_TOP_INTO' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_PREFER_TEMP_TABLE' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_REPAIR_TEMP_TABLE_STRINGS' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_TEMP_TABLE_FROM_BUFFER' value='no' />
+                  <customization name='CAP_STORED_PROCEDURE_TEMP_TABLE_FROM_NEW_PROTOCOL' value='no' />
+                  <customization name='CAP_SUPPRESS_CONNECTION_POOLING' value='no' />
+                  <customization name='CAP_SUPPRESS_DISCOVERY_QUERIES' value='no' />
+                  <customization name='CAP_SUPPRESS_GET_SERVER_TIME' value='no' />
+                  <customization name='CAP_SUPPRESS_QUICK_FILTER_ACCELERATION_VIEWS' value='no' />
+                </customizations>
+              </connection-customization>
+            </connection>
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[hmda_lar].[state_abbr]' />
+                <expression op='[fdic_regions].[state_abbreviation]' />
+              </expression>
+              <expression op='='>
+                <expression op='[hmda_lar].[agency_abbr]' />
+                <expression op='&quot;FDIC&quot;' />
+              </expression>
+            </expression>
+          </clause>
+          <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='hmda_lar' table='[hmda].[hmda_lar]' type='table' />
+          <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='fdic_regions' table='[reference].[fdic_regions]' type='table' />
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>action_taken</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[action_taken]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>action_taken</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>action_taken_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[action_taken_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>action_taken_name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>agency_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[agency_code]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>agency_code</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>agency_abbr</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[agency_abbr]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>agency_abbr</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>agency_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[agency_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>agency_name</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_ethnicity</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_ethnicity]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_ethnicity</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_ethnicity_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_ethnicity_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_ethnicity_name</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_income_000s</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_income_000s]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_income_000s</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_1</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_1</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_2</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_2</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_3</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_3</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_4</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_4</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_5</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_race_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_5</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_1</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_2</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_3</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_4</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_4</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_race_name_5</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_race_name_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_race_name_5</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_sex</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[applicant_sex]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_sex</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>applicant_sex_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[applicant_sex_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>applicant_sex_name</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>application_date_indicator</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[application_date_indicator]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>application_date_indicator</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>census_tract_number</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[census_tract_number]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>census_tract_number</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_ethnicity</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_ethnicity]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_ethnicity</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_ethnicity_name</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_ethnicity_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_ethnicity_name</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_1</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_1</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_2</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_2</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_3</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_3</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_4</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_4</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_5</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_race_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_5</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_1</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_2</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_3</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_4</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_4]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_4</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_race_name_5</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_race_name_5]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_race_name_5</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_sex</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[co_applicant_sex]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_sex</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>co_applicant_sex_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[co_applicant_sex_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>co_applicant_sex_name</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[county_code]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>county_code</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[county_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>county_name</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_1</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[denial_reason_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_1</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_2</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[denial_reason_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_2</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_3</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[denial_reason_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_3</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_name_1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[denial_reason_name_1]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_name_1</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_name_2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[denial_reason_name_2]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_name_2</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>denial_reason_name_3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[denial_reason_name_3]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>denial_reason_name_3</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>edit_status</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[edit_status]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>edit_status</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>edit_status_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[edit_status_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>edit_status_name</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hoepa_status</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[hoepa_status]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>hoepa_status</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hoepa_status_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[hoepa_status_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>hoepa_status_name</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lien_status</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[lien_status]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>lien_status</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lien_status_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[lien_status_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>lien_status_name</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_purpose</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[loan_purpose]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_purpose</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_purpose_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[loan_purpose_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_purpose_name</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[loan_type]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_type</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_type_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[loan_type_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_type_name</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>msamd</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[msamd]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>msamd</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>msamd_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[msamd_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>msamd_name</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>owner_occupancy</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[owner_occupancy]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>owner_occupancy</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>owner_occupancy_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[owner_occupancy_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>owner_occupancy_name</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>preapproval</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[preapproval]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>preapproval</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>preapproval_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[preapproval_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>preapproval_name</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[property_type]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>property_type</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_type_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[property_type_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>property_type_name</remote-alias>
+            <ordinal>62</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchaser_type</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[purchaser_type]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>purchaser_type</remote-alias>
+            <ordinal>63</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchaser_type_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[purchaser_type_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>purchaser_type_name</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>respondent_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[respondent_id]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>respondent_id</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sequence_number</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[sequence_number]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>sequence_number</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[state_code]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>state_code</remote-alias>
+            <ordinal>67</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_abbr</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[state_abbr]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>state_abbr</remote-alias>
+            <ordinal>68</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[state_name]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>state_name</remote-alias>
+            <ordinal>69</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hud_median_family_income</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[hud_median_family_income]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>hud_median_family_income</remote-alias>
+            <ordinal>70</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>loan_amount_000s</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[loan_amount_000s]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>loan_amount_000s</remote-alias>
+            <ordinal>71</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_1_to_4_family_units</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[number_of_1_to_4_family_units]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>number_of_1_to_4_family_units</remote-alias>
+            <ordinal>72</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_owner_occupied_units</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[number_of_owner_occupied_units]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>number_of_owner_occupied_units</remote-alias>
+            <ordinal>73</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>minority_population</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[minority_population]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>minority_population</remote-alias>
+            <ordinal>74</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>9</precision>
+            <scale>5</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>population</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[population]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>population</remote-alias>
+            <ordinal>75</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>11</precision>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rate_spread</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[rate_spread]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>rate_spread</remote-alias>
+            <ordinal>76</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>9</precision>
+            <scale>5</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tract_to_msamd_income</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[tract_to_msamd_income]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>tract_to_msamd_income</remote-alias>
+            <ordinal>77</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>14</precision>
+            <scale>10</scale>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>as_of_year</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[as_of_year]</local-name>
+            <parent-name>[hmda_lar]</parent-name>
+            <remote-alias>as_of_year</remote-alias>
+            <ordinal>78</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_abbreviation</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[state_abbreviation]</local-name>
+            <parent-name>[fdic_regions]</parent-name>
+            <remote-alias>state_abbreviation</remote-alias>
+            <ordinal>80</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>region_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[region_name]</local-name>
+            <parent-name>[fdic_regions]</parent-name>
+            <remote-alias>region_name</remote-alias>
+            <ordinal>81</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
+        <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
+      </column>
+      <column caption='Count hmda_lar' datatype='integer' name='[Calculation_291608119373467648]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='count([action_taken])' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='Sum' caption='Action Taken' datatype='integer' name='[action_taken]' role='dimension' type='ordinal' />
+      <column caption='Action Taken Name' datatype='string' name='[action_taken_name]' role='dimension' type='nominal' />
+      <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+      <column caption='Agency Code' datatype='integer' name='[agency_code]' role='dimension' type='ordinal' />
+      <column caption='Agency Name' datatype='string' name='[agency_name]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Applicant Ethnicity' datatype='integer' name='[applicant_ethnicity]' role='dimension' type='ordinal' />
+      <column caption='Applicant Ethnicity Name' datatype='string' name='[applicant_ethnicity_name]' role='dimension' type='nominal' />
+      <column caption='Applicant Income 000S' datatype='integer' name='[applicant_income_000s]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Applicant Race 1' datatype='integer' name='[applicant_race_1]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 2' datatype='integer' name='[applicant_race_2]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 3' datatype='integer' name='[applicant_race_3]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 4' datatype='integer' name='[applicant_race_4]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 5' datatype='integer' name='[applicant_race_5]' role='dimension' type='ordinal' />
+      <column caption='Applicant Race Name' datatype='string' name='[applicant_race_name_1]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 2' datatype='string' name='[applicant_race_name_2]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 3' datatype='string' name='[applicant_race_name_3]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 4' datatype='string' name='[applicant_race_name_4]' role='dimension' type='nominal' />
+      <column caption='Applicant Race Name 5' datatype='string' name='[applicant_race_name_5]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Applicant Sex' datatype='integer' name='[applicant_sex]' role='dimension' type='ordinal' />
+      <column caption='Applicant Sex Name' datatype='string' name='[applicant_sex_name]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Application Date Indicator' datatype='integer' name='[application_date_indicator]' role='dimension' type='ordinal' />
+      <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+      <column caption='Census Tract Number' datatype='string' name='[census_tract_number]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Co Applicant Ethnicity' datatype='integer' name='[co_applicant_ethnicity]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Ethnicity Name' datatype='integer' name='[co_applicant_ethnicity_name]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 1' datatype='integer' name='[co_applicant_race_1]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 2' datatype='integer' name='[co_applicant_race_2]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 3' datatype='integer' name='[co_applicant_race_3]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 4' datatype='integer' name='[co_applicant_race_4]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 5' datatype='integer' name='[co_applicant_race_5]' role='dimension' type='ordinal' />
+      <column caption='Co Applicant Race Name 1' datatype='string' name='[co_applicant_race_name_1]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 2' datatype='string' name='[co_applicant_race_name_2]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 3' datatype='string' name='[co_applicant_race_name_3]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 4' datatype='string' name='[co_applicant_race_name_4]' role='dimension' type='nominal' />
+      <column caption='Co Applicant Race Name 5' datatype='string' name='[co_applicant_race_name_5]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Co Applicant Sex' datatype='integer' name='[co_applicant_sex]' role='dimension' type='ordinal' />
+      <column caption='Co Applicant Sex Name' datatype='string' name='[co_applicant_sex_name]' role='dimension' type='nominal' />
+      <column caption='County Code' datatype='integer' name='[county_code]' role='dimension' type='ordinal' />
+      <column caption='County Name' datatype='string' name='[county_name]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column aggregation='Sum' caption='Denial Reason 1' datatype='integer' name='[denial_reason_1]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Denial Reason 2' datatype='integer' name='[denial_reason_2]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Denial Reason 3' datatype='integer' name='[denial_reason_3]' role='dimension' type='ordinal' />
+      <column caption='Denial Reason Name 1' datatype='string' name='[denial_reason_name_1]' role='dimension' type='nominal' />
+      <column caption='Denial Reason Name 2' datatype='string' name='[denial_reason_name_2]' role='dimension' type='nominal' />
+      <column caption='Denial Reason Name 3' datatype='string' name='[denial_reason_name_3]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Edit Status' datatype='integer' name='[edit_status]' role='dimension' type='ordinal' />
+      <column caption='Edit Status Name' datatype='string' name='[edit_status_name]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Hoepa Status' datatype='integer' name='[hoepa_status]' role='dimension' type='ordinal' />
+      <column caption='Hoepa Status Name' datatype='string' name='[hoepa_status_name]' role='dimension' type='nominal' />
+      <column caption='Hud Median Family Income' datatype='integer' name='[hud_median_family_income]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Lien Status' datatype='integer' name='[lien_status]' role='dimension' type='ordinal' />
+      <column caption='Lien Status Name' datatype='string' name='[lien_status_name]' role='dimension' type='nominal' />
+      <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Loan Purpose' datatype='integer' name='[loan_purpose]' role='dimension' type='ordinal' />
+      <column caption='Loan Purpose Name' datatype='string' name='[loan_purpose_name]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Loan Type' datatype='integer' name='[loan_type]' role='dimension' type='ordinal' />
+      <column caption='Loan Type Name' datatype='string' name='[loan_type_name]' role='dimension' type='nominal' />
+      <column caption='Minority Population' datatype='real' name='[minority_population]' role='measure' type='quantitative' />
+      <column caption='Msamd' datatype='string' name='[msamd]' role='dimension' type='nominal' />
+      <column caption='Msamd Name' datatype='string' name='[msamd_name]' role='dimension' type='nominal' />
+      <column caption='Number Of 1 To 4 Family Units' datatype='integer' name='[number_of_1_to_4_family_units]' role='measure' type='quantitative' />
+      <column caption='Number Of Owner Occupied Units' datatype='integer' name='[number_of_owner_occupied_units]' role='measure' type='quantitative' />
+      <column caption='Owner Occupancy' datatype='integer' name='[owner_occupancy]' role='measure' type='quantitative' />
+      <column caption='Owner Occupancy Name' datatype='string' name='[owner_occupancy_name]' role='dimension' type='nominal' />
+      <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Preapproval' datatype='integer' name='[preapproval]' role='dimension' type='ordinal' />
+      <column caption='Preapproval Name' datatype='string' name='[preapproval_name]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Property Type' datatype='integer' name='[property_type]' role='dimension' type='ordinal' />
+      <column caption='Property Type Name' datatype='string' name='[property_type_name]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Purchaser Type' datatype='integer' name='[purchaser_type]' role='dimension' type='ordinal' />
+      <column caption='Purchaser Type Name' datatype='string' name='[purchaser_type_name]' role='dimension' type='nominal' />
+      <column caption='Rate Spread' datatype='real' name='[rate_spread]' role='measure' type='quantitative' />
+      <column caption='Region Name' datatype='string' name='[region_name]' role='dimension' type='nominal' />
+      <column caption='Respondent Id' datatype='integer' name='[respondent_id]' role='dimension' type='ordinal' />
+      <column caption='Sequence Number' datatype='string' name='[sequence_number]' role='dimension' type='nominal' />
+      <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Abbreviation' datatype='string' name='[state_abbreviation]' role='dimension' type='nominal' />
+      <column caption='State Code' datatype='integer' name='[state_code]' role='dimension' type='ordinal' />
+      <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Tract To Msamd Income' datatype='real' name='[tract_to_msamd_income]' role='measure' type='quantitative' />
+      <column-instance column='[Number of Records]' derivation='Avg' name='[avg:Number of Records:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[loan_amount_000s]' derivation='Avg' name='[avg:loan_amount_000s:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[loan_amount_000s]' derivation='Sum' name='[cum:sum:loan_amount_000s:qk:4]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+      <column-instance column='[applicant_race_name_1]' derivation='None' name='[none:applicant_race_name_1:nk]' pivot='key' type='nominal' />
+      <column-instance column='[region_name]' derivation='None' name='[none:region_name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[loan_amount_000s]' derivation='Avg' name='[pcto:avg:loan_amount_000s:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:2]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Columns' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:7]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[loan_amount_000s]' derivation='Sum' name='[sum:loan_amount_000s:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_291608119373467648]' derivation='User' name='[usr:Calculation_291608119373467648:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.642691' measure-ordering='alphabetic' measure-percentage='0.357309' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:agency_abbr:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;CFPB&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;NCUA&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;HUD&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;OTS&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;FRS&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;OCC&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;FDIC&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:region_name:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Kansas City&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Dallas&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;San Francisco&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Chicago&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;New York&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Atlanta&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:avg:loan_amount_000s:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:loan_amount_000s:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:Number of Records:qk:2]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:sum:loan_amount_000s:qk:4]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[usr:Calculation_291608119373467648:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1whtkzv19k2o3a18hkpvc1cyftna].[attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1whtkzv19k2o3a18hkpvc1cyftna].[sum:fraction_of_population:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <datasource-relationships>
+    <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+      <column caption='Applicant Race Name' datatype='string' name='[applicant_race_name_1]' role='dimension' type='nominal' />
+      <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+      <column-instance column='[applicant_race_name_1]' derivation='None' name='[none:applicant_race_name_1:nk]' pivot='key' type='nominal' />
+      <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+      <column-instance column='[state_name]' derivation='None' name='[none:state_name:nk]' pivot='key' type='nominal' />
+      <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+    </datasource-dependencies>
+    <datasource-dependencies datasource='federated.1whtkzv19k2o3a18hkpvc1cyftna'>
+      <column caption='As Of Year' datatype='string' name='[as_of_year]' role='dimension' type='nominal' />
+      <column caption='Location' datatype='string' name='[location]' role='dimension' type='nominal' />
+      <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+      <column-instance column='[location]' derivation='None' name='[none:location:nk]' pivot='key' type='nominal' />
+      <column-instance column='[race]' derivation='None' name='[none:race:nk]' pivot='key' type='nominal' />
+      <column datatype='string' name='[race]' role='dimension' type='nominal' />
+    </datasource-dependencies>
+    <datasource-relationship source='federated.1cyfii71ur71or1es0vig1bfnaf1' target='federated.1whtkzv19k2o3a18hkpvc1cyftna'>
+      <column-mapping>
+        <map key='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' value='[federated.1whtkzv19k2o3a18hkpvc1cyftna].[none:race:nk]' />
+        <map key='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' value='[federated.1whtkzv19k2o3a18hkpvc1cyftna].[none:as_of_year:nk]' />
+        <map key='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_name:nk]' value='[federated.1whtkzv19k2o3a18hkpvc1cyftna].[none:location:nk]' />
+      </column-mapping>
+    </datasource-relationship>
+  </datasource-relationships>
+  <worksheets>
+    <worksheet name='FDIC Loans By Region Over Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
+              <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
+            </column>
+            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region_name]' derivation='None' name='[none:region_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state_abbr]' derivation='None' name='[none:state_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+            <column caption='Region Name' datatype='string' name='[region_name]' role='dimension' type='nominal' />
+            <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[Calculation_254734894758260736]' derivation='Year-Trunc' name='[tyr:Calculation_254734894758260736:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]'>
+            <groupfilter function='member' level='[none:agency_abbr:nk]' member='&quot;FDIC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2010&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2011&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2013&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2014&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2015&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:state_abbr:nk]' />
+              <groupfilter function='member' level='[none:state_abbr:nk]' member='&quot;&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]' included-values='non-null' />
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='FDIC Loans Racial Demo By Region'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+            <datasource caption='race_by_state_big (sperson)' name='federated.1whtkzv19k2o3a18hkpvc1cyftna' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+            <column caption='Applicant Race Name' datatype='string' name='[applicant_race_name_1]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[applicant_race_name_1]' derivation='None' name='[none:applicant_race_name_1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region_name]' derivation='None' name='[none:region_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state_abbr]' derivation='None' name='[none:state_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state_name]' derivation='None' name='[none:state_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:7]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column caption='Region Name' datatype='string' name='[region_name]' role='dimension' type='nominal' />
+            <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1whtkzv19k2o3a18hkpvc1cyftna'>
+            <column caption='As Of Year' datatype='string' name='[as_of_year]' role='dimension' type='nominal' />
+            <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk:10]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Sum' ordering-type='CellInPane' type='CumTotal' />
+            </column-instance>
+            <column datatype='real' name='[fraction_of_population]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1whtkzv19k2o3a18hkpvc1cyftna].[cum:attr:fraction_of_population:qk:10]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:Number of Records:qk:2]&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1whtkzv19k2o3a18hkpvc1cyftna].[cum:attr:fraction_of_population:qk:10]&quot;</bucket>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;</bucket>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:Number of Records:qk:2]&quot;</bucket>
+            </dictionary>
+          </sort>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]'>
+            <groupfilter function='member' level='[none:agency_abbr:nk]' member='&quot;FDIC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2010&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2011&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2013&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2014&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2015&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:state_abbr:nk]' />
+              <groupfilter function='member' level='[none:state_abbr:nk]' member='&quot;&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' value='128' />
+            <format attr='text-format' field='[federated.1whtkzv19k2o3a18hkpvc1cyftna].[cum:attr:fraction_of_population:qk:10]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk] / ([federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_name:nk] / [federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]))</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</cols>
+        <join-lod-include-overrides>
+          <column>[federated.1whtkzv19k2o3a18hkpvc1cyftna].[as_of_year]</column>
+        </join-lod-include-overrides>
+        <percentages enabled='false' mode='column-in-pane' />
+      </table>
+    </worksheet>
+    <worksheet name='Loan Trends'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
+              <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
+            </column>
+            <column caption='Count hmda_lar' datatype='integer' name='[Calculation_291608119373467648]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='count([action_taken])' />
+            </column>
+            <column aggregation='Sum' caption='Action Taken' datatype='integer' name='[action_taken]' role='dimension' type='ordinal' />
+            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+            <column-instance column='[loan_amount_000s]' derivation='Avg' name='[avg:loan_amount_000s:qk]' pivot='key' type='quantitative' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column caption='Loan Purpose Name' datatype='string' name='[loan_purpose_name]' role='dimension' type='nominal' />
+            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[loan_purpose_name]' derivation='None' name='[none:loan_purpose_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_254734894758260736]' derivation='Year-Trunc' name='[tyr:Calculation_254734894758260736:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_291608119373467648]' derivation='User' name='[usr:Calculation_291608119373467648:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]'>
+            <groupfilter function='member' level='[none:agency_abbr:nk]' member='&quot;FDIC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2010&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2011&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2013&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2014&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2015&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:loan_purpose_name:nk]'>
+            <groupfilter function='member' level='[none:loan_purpose_name:nk]' member='&quot;Home purchase&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:loan_purpose_name:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[usr:Calculation_291608119373467648:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[usr:Calculation_291608119373467648:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk] + [federated.1cyfii71ur71or1es0vig1bfnaf1].[usr:Calculation_291608119373467648:qk])</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[sum:loan_amount_000s:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:loan_amount_000s:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='51'>
+    <window class='worksheet' maximized='true' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Loan Trends'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]' type='filter' />
+            <card param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' type='filter' />
+            <card pane-specification-id='1' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_name:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:loan_purpose_name:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:Calculation_254734894758260736:ok]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:as_of_year:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='FDIC Loans By Region Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:location:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:Calculation_254734894758260736:ok]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:as_of_year:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='FDIC Loans Racial Demo By Region'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]</field>
+            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_name:nk]</field>
+            <field>[federated.1whtkzv19k2o3a18hkpvc1cyftna].[none:as_of_year:nk]</field>
+            <field>[federated.1whtkzv19k2o3a18hkpvc1cyftna].[none:location:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='FDIC Loans By Region Over Time' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='FDIC Loans Racial Demo By Region' width='192'>
+      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
+      2LiAAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Loan Trends' width='192'>
+      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
+      1YhCNaZkgwAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='24' name='Sheet 4' width='124'>
+      iVBORw0KGgoAAAANSUhEUgAAAHwAAAAYCAYAAAA4e5nyAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAF/0lEQVRoge1ab0iUdxz/NNkYyQarbbb1QjaiQXvh4Hkiz3kxb3n9WYzEiLC66Ix2y9rC
+      zkZCXh1TQSiDFM4XsTtRuMLalOZIU7Cl4Z/QXNqi1NOcXs470u6cx+722Yv7n/dYAzPG3Qee
+      Fz7f3/fP5/d5ft/vj8MlJIkYogavvOwCYlhcxASPMsQEjzLEBI8yxASPMsQEjzLEBI8yxASP
+      MsQEjzLEBI8yxASPMsQEjzIsquCuh40oUishF0WIciVyKnoxHbB6MN5chD0KGURRBsX2U7hm
+      C/pO95qQlyGHKIqQK9X44Z5EkmETdokixJDn5HW/8TpOPmXbZRr2V4eJvjoos00YlgjtI4HG
+      IjWUchGiKIcypwK9ARIejP+iQ4ZchChTYM/ZjhB+0+g46/OTKbCnqBnjHqkkwzDtCq9TDJII
+      rqreC5m4CwEKzn5cKvDX5t2nsx3T4U5cNLSycKeetXcecZak2znEy7kZLOnyWt1dJdyiKmPH
+      o1mSbjrHhzjm8Llaa6jZksfaISfdJGen73PEKpVGT3XVaGTbaBXV+tbItpZC7jxhplFnpGU+
+      FoU7qa+9Q2+ZTg5dzmWGn4TFSJWqjN02Nzk7wtq8Lcy76vBROER1WUfAr69aQ5XhnuRe6dVV
+      lGDhxVQ9c1XneT4/i0Z/waONrGq4T5vTTe8eNlC3JY9XHUG3RRTcTbf7qTdN+dS1kKSDV/N2
+      UIr/PcOOwMY9C5M1Gl/MCOgqocY4n5x8puDuuSSY70vYV5bF4vYQu9XM7Nx6Oki26L5jw2yo
+      o4XG3DL2RSZBjSQJkpxiU76G5wfcbNGFCD63Wjbla1gzGXyziC09DnFxIX9O98JQFw+lAAC/
+      47Z9I9JXR/Kz4beeVdj0efxzZXlkXYoPEiPbnBNWJEgZnxNx4STQa6hDvJcEJv9cgaSPQ+wJ
+      a5Hy6jgeAVjx3hCqqvsx4wEAD2bsf+OV6UEMOyOSwNJ56vTcqkD1+4ex98M4yTWuJw/wa8VR
+      mN/Zj03Lg+9fwqXNA3tPBXKO34Rcn4+UeABwwvnPAC4d3A6FzDsbM/JMvtnogOM1BzpO+WeT
+      DIo9RWiWGICP7W04l+mdYTLFdhw0BOfoY/skruT6ZqJcCXXBzxiUnKPPYGHvQUXOcdyU65Gf
+      Eg9gFn8530B82HcZh7iHIxgFsHp/Mb68W4CtqSJE8TNs01aid8aKicmIJNB2LtNbp0yB7QcN
+      CIxiTz8MpqU4qlmDiHL77jCfpn2Ly28dwOnDAsJKmqdvLDisNcepb7LRPccyyRptMdvDDC3U
+      ZXnba1fJEZrDZraFxiwd52t6waVGqqTmNluoU4XPyme1dFpreFzfRNtcEvO29LlxzMzONlPq
+      KhIOC40qPVvZSn2yQEGY+2RJ9HWLUcVQ+ot4wm+h8kYSDiiWRfgylyNdYUfpmeuYcAHwzMDy
+      Yy2G1suQCOCTL1ah4fsL6J/xAHBhovMnNK9MgTAnThvOHTGh0zoDDwDPjAV15ReRsC4JwDAu
+      FBSh8cETuADANYHO8vO4m7IWK/8Li8obSDqgwLIIx2vNViXulhvQY/cAroeoO12JZRvXe0+Y
+      bRD9/rrsPSg/VolE9VYkRMjRdu4ITJ1Wb/v3zMBSV46LCeuQhBScuNmFrq7gc2brRzh8qQvV
+      exPxx7Vq1PWN4onLG8c10YkrzbN49+2Q4M/1gS0ERquomvfLnOJto5bbUgUKyWnM1NZwIHBY
+      3BxrKuTutGQKQirT95WyfcpnspqZrSxlt2+drdtIbWYakwWBQuo2ao236V86O9LAwn3pTBW8
+      OXYXNnHMl8NizHqqNt9lyN3OYuUh1k6S5CirVBFOWJa/K7g5Vl8Q4PCVIZibk4086asrOS2T
+      2pqBkE5npTlbydJuH1tbN43aTKYlCxSEVG7TGnk7ECgcoZc2x2A9S7/2+wlMTd/HwqaxsI66
+      qC39RcBq1jC3XmI3FgDu9mKqyvoijKEFhNVMTW49XxyLIP7nv7QN49rIBhzb/OYLiu9Ba9vr
+      +EbqgrRAGL42gg3HNuNFsQjFEjL2b8rRhH8BzIAT379tV8gAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
