@@ -11,7 +11,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='athena.us-east-1.amazonaws.com' name='athena.0drrbwb03w5y1n12zpy6d0zmvhe1'>
-            <connection class='athena' dbname='AwsDataCatalog' one-time-sql='' port='443' schema='sperson' server='athena.us-east-1.amazonaws.com' username='***REMOVED***' warehouse='s3://aws-athena-query-results-datalake-poc/'>
+            <connection class='athena' dbname='AwsDataCatalog' one-time-sql='' port='443' schema='hmda' server='athena.us-east-1.amazonaws.com' username='***REMOVED***' warehouse='s3://aws-athena-query-results-datalake-poc/'>
               <connection-customization class='athena' enabled='false' version='10.5'>
                 <vendor name='athena' />
                 <driver name='athena' />
@@ -113,22 +113,127 @@
             </connection>
           </named-connection>
         </named-connections>
-        <relation join='inner' type='join'>
+        <relation join='left' type='join'>
           <clause type='join'>
             <expression op='AND'>
               <expression op='='>
-                <expression op='[hmda_lar].[applicant_race_name_1]' />
-                <expression op='[unpivot race_by_state].[race]' />
+                <expression op='[hmda_lar].[state_abbr]' />
+                <expression op='[fdic_regions].[state_abbreviation]' />
               </expression>
               <expression op='='>
-                <expression op='[hmda_lar].[state_name]' />
-                <expression op='[unpivot race_by_state].[location]' />
+                <expression op='[hmda_lar].[agency_abbr]' />
+                <expression op='&quot;FDIC&quot;' />
               </expression>
             </expression>
           </clause>
-          <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='hmda_lar' table='[hmda].[hmda_lar]' type='table' />
-          <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='unpivot race_by_state' type='text'>SELECT location, &apos;White&apos; as race, white + hispanic as fraction_of_population&#13;&#10;FROM sperson.race_by_state&#13;&#10;UNION &#13;&#10;SELECT location, &apos;Black or African American&apos; as race, black as fraction_of_population&#13;&#10;FROM sperson.race_by_state&#13;&#10;UNION&#13;&#10;SELECT location, &apos;Asian&apos; as race, asian as fraction_of_population&#13;&#10;FROM sperson.race_by_state&#13;&#10;UNION&#13;&#10;SELECT location, &apos;Native Hawaiian or Other Pacific Islander&apos; as race, pacific_islander as fraction_of_population&#13;&#10;FROM sperson.race_by_state&#13;&#10;UNION&#13;&#10;SELECT location, &apos;American Indian or Alaska Native&apos; as race, american_indian as fraction_of_population&#13;&#10;FROM sperson.race_by_state</relation>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='AND'>
+                <expression op='='>
+                  <expression op='[hmda_lar].[applicant_race_name_1]' />
+                  <expression op='[unpivot race_by_state_big].[race]' />
+                </expression>
+                <expression op='='>
+                  <expression op='[hmda_lar].[state_name]' />
+                  <expression op='[unpivot race_by_state_big].[location]' />
+                </expression>
+                <expression op='='>
+                  <expression op='[hmda_lar].[as_of_year]' />
+                  <expression op='[unpivot race_by_state_big].[as_of_year]' />
+                </expression>
+              </expression>
+            </clause>
+            <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='hmda_lar' table='[hmda].[hmda_lar]' type='table' />
+            <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='unpivot race_by_state_big' type='text'>SELECT as_of_year, location, &apos;White&apos; as race, white + hispanic as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION &#13;&#10;SELECT as_of_year, location, &apos;Black or African American&apos; as race, black as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION&#13;&#10;SELECT as_of_year, location, &apos;Asian&apos; as race, asian as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION&#13;&#10;SELECT as_of_year, location, &apos;Native Hawaiian or Other Pacific Islander&apos; as race, pacific_islander as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big&#13;&#10;UNION&#13;&#10;SELECT as_of_year, location, &apos;American Indian or Alaska Native&apos; as race, american_indian as fraction_of_population&#13;&#10;FROM sperson.race_by_state_big</relation>
+          </relation>
+          <relation connection='athena.0drrbwb03w5y1n12zpy6d0zmvhe1' name='fdic_regions' table='[reference].[fdic_regions]' type='table' />
         </relation>
+        <cols>
+          <map key='[action_taken]' value='[hmda_lar].[action_taken]' />
+          <map key='[action_taken_name]' value='[hmda_lar].[action_taken_name]' />
+          <map key='[agency_abbr]' value='[hmda_lar].[agency_abbr]' />
+          <map key='[agency_code]' value='[hmda_lar].[agency_code]' />
+          <map key='[agency_name]' value='[hmda_lar].[agency_name]' />
+          <map key='[applicant_ethnicity]' value='[hmda_lar].[applicant_ethnicity]' />
+          <map key='[applicant_ethnicity_name]' value='[hmda_lar].[applicant_ethnicity_name]' />
+          <map key='[applicant_income_000s]' value='[hmda_lar].[applicant_income_000s]' />
+          <map key='[applicant_race_1]' value='[hmda_lar].[applicant_race_1]' />
+          <map key='[applicant_race_2]' value='[hmda_lar].[applicant_race_2]' />
+          <map key='[applicant_race_3]' value='[hmda_lar].[applicant_race_3]' />
+          <map key='[applicant_race_4]' value='[hmda_lar].[applicant_race_4]' />
+          <map key='[applicant_race_5]' value='[hmda_lar].[applicant_race_5]' />
+          <map key='[applicant_race_name_1]' value='[hmda_lar].[applicant_race_name_1]' />
+          <map key='[applicant_race_name_2]' value='[hmda_lar].[applicant_race_name_2]' />
+          <map key='[applicant_race_name_3]' value='[hmda_lar].[applicant_race_name_3]' />
+          <map key='[applicant_race_name_4]' value='[hmda_lar].[applicant_race_name_4]' />
+          <map key='[applicant_race_name_5]' value='[hmda_lar].[applicant_race_name_5]' />
+          <map key='[applicant_sex]' value='[hmda_lar].[applicant_sex]' />
+          <map key='[applicant_sex_name]' value='[hmda_lar].[applicant_sex_name]' />
+          <map key='[application_date_indicator]' value='[hmda_lar].[application_date_indicator]' />
+          <map key='[as_of_year (unpivot race_by_state)]' value='[unpivot race_by_state_big].[as_of_year]' />
+          <map key='[as_of_year]' value='[hmda_lar].[as_of_year]' />
+          <map key='[census_tract_number]' value='[hmda_lar].[census_tract_number]' />
+          <map key='[co_applicant_ethnicity]' value='[hmda_lar].[co_applicant_ethnicity]' />
+          <map key='[co_applicant_ethnicity_name]' value='[hmda_lar].[co_applicant_ethnicity_name]' />
+          <map key='[co_applicant_race_1]' value='[hmda_lar].[co_applicant_race_1]' />
+          <map key='[co_applicant_race_2]' value='[hmda_lar].[co_applicant_race_2]' />
+          <map key='[co_applicant_race_3]' value='[hmda_lar].[co_applicant_race_3]' />
+          <map key='[co_applicant_race_4]' value='[hmda_lar].[co_applicant_race_4]' />
+          <map key='[co_applicant_race_5]' value='[hmda_lar].[co_applicant_race_5]' />
+          <map key='[co_applicant_race_name_1]' value='[hmda_lar].[co_applicant_race_name_1]' />
+          <map key='[co_applicant_race_name_2]' value='[hmda_lar].[co_applicant_race_name_2]' />
+          <map key='[co_applicant_race_name_3]' value='[hmda_lar].[co_applicant_race_name_3]' />
+          <map key='[co_applicant_race_name_4]' value='[hmda_lar].[co_applicant_race_name_4]' />
+          <map key='[co_applicant_race_name_5]' value='[hmda_lar].[co_applicant_race_name_5]' />
+          <map key='[co_applicant_sex]' value='[hmda_lar].[co_applicant_sex]' />
+          <map key='[co_applicant_sex_name]' value='[hmda_lar].[co_applicant_sex_name]' />
+          <map key='[county_code]' value='[hmda_lar].[county_code]' />
+          <map key='[county_name]' value='[hmda_lar].[county_name]' />
+          <map key='[denial_reason_1]' value='[hmda_lar].[denial_reason_1]' />
+          <map key='[denial_reason_2]' value='[hmda_lar].[denial_reason_2]' />
+          <map key='[denial_reason_3]' value='[hmda_lar].[denial_reason_3]' />
+          <map key='[denial_reason_name_1]' value='[hmda_lar].[denial_reason_name_1]' />
+          <map key='[denial_reason_name_2]' value='[hmda_lar].[denial_reason_name_2]' />
+          <map key='[denial_reason_name_3]' value='[hmda_lar].[denial_reason_name_3]' />
+          <map key='[edit_status]' value='[hmda_lar].[edit_status]' />
+          <map key='[edit_status_name]' value='[hmda_lar].[edit_status_name]' />
+          <map key='[fraction_of_population]' value='[unpivot race_by_state_big].[fraction_of_population]' />
+          <map key='[hoepa_status]' value='[hmda_lar].[hoepa_status]' />
+          <map key='[hoepa_status_name]' value='[hmda_lar].[hoepa_status_name]' />
+          <map key='[hud_median_family_income]' value='[hmda_lar].[hud_median_family_income]' />
+          <map key='[lien_status]' value='[hmda_lar].[lien_status]' />
+          <map key='[lien_status_name]' value='[hmda_lar].[lien_status_name]' />
+          <map key='[loan_amount_000s]' value='[hmda_lar].[loan_amount_000s]' />
+          <map key='[loan_purpose]' value='[hmda_lar].[loan_purpose]' />
+          <map key='[loan_purpose_name]' value='[hmda_lar].[loan_purpose_name]' />
+          <map key='[loan_type]' value='[hmda_lar].[loan_type]' />
+          <map key='[loan_type_name]' value='[hmda_lar].[loan_type_name]' />
+          <map key='[location]' value='[unpivot race_by_state_big].[location]' />
+          <map key='[minority_population]' value='[hmda_lar].[minority_population]' />
+          <map key='[msamd]' value='[hmda_lar].[msamd]' />
+          <map key='[msamd_name]' value='[hmda_lar].[msamd_name]' />
+          <map key='[number_of_1_to_4_family_units]' value='[hmda_lar].[number_of_1_to_4_family_units]' />
+          <map key='[number_of_owner_occupied_units]' value='[hmda_lar].[number_of_owner_occupied_units]' />
+          <map key='[owner_occupancy]' value='[hmda_lar].[owner_occupancy]' />
+          <map key='[owner_occupancy_name]' value='[hmda_lar].[owner_occupancy_name]' />
+          <map key='[population]' value='[hmda_lar].[population]' />
+          <map key='[preapproval]' value='[hmda_lar].[preapproval]' />
+          <map key='[preapproval_name]' value='[hmda_lar].[preapproval_name]' />
+          <map key='[property_type]' value='[hmda_lar].[property_type]' />
+          <map key='[property_type_name]' value='[hmda_lar].[property_type_name]' />
+          <map key='[purchaser_type]' value='[hmda_lar].[purchaser_type]' />
+          <map key='[purchaser_type_name]' value='[hmda_lar].[purchaser_type_name]' />
+          <map key='[race]' value='[unpivot race_by_state_big].[race]' />
+          <map key='[rate_spread]' value='[hmda_lar].[rate_spread]' />
+          <map key='[region_name]' value='[fdic_regions].[region_name]' />
+          <map key='[respondent_id]' value='[hmda_lar].[respondent_id]' />
+          <map key='[sequence_number]' value='[hmda_lar].[sequence_number]' />
+          <map key='[state_abbr]' value='[hmda_lar].[state_abbr]' />
+          <map key='[state_abbreviation]' value='[fdic_regions].[state_abbreviation]' />
+          <map key='[state_code]' value='[hmda_lar].[state_code]' />
+          <map key='[state_name]' value='[hmda_lar].[state_name]' />
+          <map key='[tract_to_msamd_income]' value='[hmda_lar].[tract_to_msamd_income]' />
+        </cols>
         <metadata-records>
           <metadata-record class='column'>
             <remote-name>action_taken</remote-name>
@@ -1214,12 +1319,28 @@
             </attributes>
           </metadata-record>
           <metadata-record class='column'>
+            <remote-name>as_of_year</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[as_of_year (unpivot race_by_state)]</local-name>
+            <parent-name>[unpivot race_by_state_big]</parent-name>
+            <remote-alias>as_of_year</remote-alias>
+            <ordinal>80</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1073741824</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
             <remote-name>location</remote-name>
             <remote-type>130</remote-type>
             <local-name>[location]</local-name>
-            <parent-name>[unpivot race_by_state]</parent-name>
+            <parent-name>[unpivot race_by_state_big]</parent-name>
             <remote-alias>location</remote-alias>
-            <ordinal>80</ordinal>
+            <ordinal>81</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>1073741824</width>
@@ -1233,9 +1354,9 @@
             <remote-name>race</remote-name>
             <remote-type>130</remote-type>
             <local-name>[race]</local-name>
-            <parent-name>[unpivot race_by_state]</parent-name>
+            <parent-name>[unpivot race_by_state_big]</parent-name>
             <remote-alias>race</remote-alias>
-            <ordinal>81</ordinal>
+            <ordinal>82</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>1073741824</width>
@@ -1249,20 +1370,55 @@
             <remote-name>fraction_of_population</remote-name>
             <remote-type>131</remote-type>
             <local-name>[fraction_of_population]</local-name>
-            <parent-name>[unpivot race_by_state]</parent-name>
+            <parent-name>[unpivot race_by_state_big]</parent-name>
             <remote-alias>fraction_of_population</remote-alias>
-            <ordinal>82</ordinal>
+            <ordinal>83</ordinal>
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <precision>4</precision>
             <scale>2</scale>
             <contains-null>true</contains-null>
           </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_abbreviation</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[state_abbreviation]</local-name>
+            <parent-name>[fdic_regions]</parent-name>
+            <remote-alias>state_abbreviation</remote-alias>
+            <ordinal>85</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>region_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[region_name]</local-name>
+            <parent-name>[fdic_regions]</parent-name>
+            <remote-alias>region_name</remote-alias>
+            <ordinal>86</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column caption='Calculation1' datatype='real' name='[Calculation_195343672586870785]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]&quot;' value='Number of Loans' />
+          <alias key='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[win:attr:fraction_of_population:qk:5]&quot;' value='% of Population' />
+        </aliases>
       </column>
       <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
         <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
@@ -1270,82 +1426,85 @@
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
-      <column caption='Action Taken' datatype='integer' name='[action_taken]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Action Taken' datatype='integer' name='[action_taken]' role='dimension' type='ordinal' />
       <column caption='Action Taken Name' datatype='string' name='[action_taken_name]' role='dimension' type='nominal' />
       <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
       <column caption='Agency Code' datatype='integer' name='[agency_code]' role='dimension' type='ordinal' />
       <column caption='Agency Name' datatype='string' name='[agency_name]' role='dimension' type='nominal' />
-      <column caption='Applicant Ethnicity' datatype='integer' name='[applicant_ethnicity]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Applicant Ethnicity' datatype='integer' name='[applicant_ethnicity]' role='dimension' type='ordinal' />
       <column caption='Applicant Ethnicity Name' datatype='string' name='[applicant_ethnicity_name]' role='dimension' type='nominal' />
       <column caption='Applicant Income 000S' datatype='integer' name='[applicant_income_000s]' role='measure' type='quantitative' />
-      <column caption='Applicant Race 1' datatype='integer' name='[applicant_race_1]' role='measure' type='quantitative' />
-      <column caption='Applicant Race 2' datatype='integer' name='[applicant_race_2]' role='measure' type='quantitative' />
-      <column caption='Applicant Race 3' datatype='integer' name='[applicant_race_3]' role='measure' type='quantitative' />
-      <column caption='Applicant Race 4' datatype='integer' name='[applicant_race_4]' role='measure' type='quantitative' />
-      <column caption='Applicant Race 5' datatype='integer' name='[applicant_race_5]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Applicant Race 1' datatype='integer' name='[applicant_race_1]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 2' datatype='integer' name='[applicant_race_2]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 3' datatype='integer' name='[applicant_race_3]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 4' datatype='integer' name='[applicant_race_4]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Applicant Race 5' datatype='integer' name='[applicant_race_5]' role='dimension' type='ordinal' />
       <column caption='Applicant Race Name 1' datatype='string' name='[applicant_race_name_1]' role='dimension' type='nominal' />
       <column caption='Applicant Race Name 2' datatype='string' name='[applicant_race_name_2]' role='dimension' type='nominal' />
       <column caption='Applicant Race Name 3' datatype='string' name='[applicant_race_name_3]' role='dimension' type='nominal' />
       <column caption='Applicant Race Name 4' datatype='string' name='[applicant_race_name_4]' role='dimension' type='nominal' />
       <column caption='Applicant Race Name 5' datatype='string' name='[applicant_race_name_5]' role='dimension' type='nominal' />
-      <column caption='Applicant Sex' datatype='integer' name='[applicant_sex]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Applicant Sex' datatype='integer' name='[applicant_sex]' role='dimension' type='ordinal' />
       <column caption='Applicant Sex Name' datatype='string' name='[applicant_sex_name]' role='dimension' type='nominal' />
-      <column caption='Application Date Indicator' datatype='integer' name='[application_date_indicator]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Application Date Indicator' datatype='integer' name='[application_date_indicator]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[as_of_year (unpivot race_by_state)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
       <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
       <column caption='Census Tract Number' datatype='string' name='[census_tract_number]' role='dimension' type='nominal' />
-      <column caption='Co Applicant Ethnicity' datatype='integer' name='[co_applicant_ethnicity]' role='measure' type='quantitative' />
-      <column caption='Co Applicant Ethnicity Name' datatype='integer' name='[co_applicant_ethnicity_name]' role='measure' type='quantitative' />
-      <column caption='Co Applicant Race 1' datatype='integer' name='[co_applicant_race_1]' role='measure' type='quantitative' />
-      <column caption='Co Applicant Race 2' datatype='integer' name='[co_applicant_race_2]' role='measure' type='quantitative' />
-      <column caption='Co Applicant Race 3' datatype='integer' name='[co_applicant_race_3]' role='measure' type='quantitative' />
-      <column caption='Co Applicant Race 4' datatype='integer' name='[co_applicant_race_4]' role='measure' type='quantitative' />
-      <column caption='Co Applicant Race 5' datatype='integer' name='[co_applicant_race_5]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Co Applicant Ethnicity' datatype='integer' name='[co_applicant_ethnicity]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Ethnicity Name' datatype='integer' name='[co_applicant_ethnicity_name]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 1' datatype='integer' name='[co_applicant_race_1]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 2' datatype='integer' name='[co_applicant_race_2]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 3' datatype='integer' name='[co_applicant_race_3]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 4' datatype='integer' name='[co_applicant_race_4]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Co Applicant Race 5' datatype='integer' name='[co_applicant_race_5]' role='dimension' type='ordinal' />
       <column caption='Co Applicant Race Name 1' datatype='string' name='[co_applicant_race_name_1]' role='dimension' type='nominal' />
       <column caption='Co Applicant Race Name 2' datatype='string' name='[co_applicant_race_name_2]' role='dimension' type='nominal' />
       <column caption='Co Applicant Race Name 3' datatype='string' name='[co_applicant_race_name_3]' role='dimension' type='nominal' />
       <column caption='Co Applicant Race Name 4' datatype='string' name='[co_applicant_race_name_4]' role='dimension' type='nominal' />
       <column caption='Co Applicant Race Name 5' datatype='string' name='[co_applicant_race_name_5]' role='dimension' type='nominal' />
-      <column caption='Co Applicant Sex' datatype='integer' name='[co_applicant_sex]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Co Applicant Sex' datatype='integer' name='[co_applicant_sex]' role='dimension' type='ordinal' />
       <column caption='Co Applicant Sex Name' datatype='string' name='[co_applicant_sex_name]' role='dimension' type='nominal' />
       <column caption='County Code' datatype='integer' name='[county_code]' role='dimension' type='ordinal' />
       <column caption='County Name' datatype='string' name='[county_name]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
-      <column caption='Denial Reason 1' datatype='integer' name='[denial_reason_1]' role='measure' type='quantitative' />
-      <column caption='Denial Reason 2' datatype='integer' name='[denial_reason_2]' role='measure' type='quantitative' />
-      <column caption='Denial Reason 3' datatype='integer' name='[denial_reason_3]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Denial Reason 1' datatype='integer' name='[denial_reason_1]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Denial Reason 2' datatype='integer' name='[denial_reason_2]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Denial Reason 3' datatype='integer' name='[denial_reason_3]' role='dimension' type='ordinal' />
       <column caption='Denial Reason Name 1' datatype='string' name='[denial_reason_name_1]' role='dimension' type='nominal' />
       <column caption='Denial Reason Name 2' datatype='string' name='[denial_reason_name_2]' role='dimension' type='nominal' />
       <column caption='Denial Reason Name 3' datatype='string' name='[denial_reason_name_3]' role='dimension' type='nominal' />
-      <column caption='Edit Status' datatype='integer' name='[edit_status]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Edit Status' datatype='integer' name='[edit_status]' role='dimension' type='ordinal' />
       <column caption='Edit Status Name' datatype='string' name='[edit_status_name]' role='dimension' type='nominal' />
       <column datatype='real' name='[fraction_of_population]' role='measure' type='quantitative' />
-      <column caption='Hoepa Status' datatype='integer' name='[hoepa_status]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Hoepa Status' datatype='integer' name='[hoepa_status]' role='dimension' type='ordinal' />
       <column caption='Hoepa Status Name' datatype='string' name='[hoepa_status_name]' role='dimension' type='nominal' />
       <column caption='Hud Median Family Income' datatype='integer' name='[hud_median_family_income]' role='measure' type='quantitative' />
-      <column caption='Lien Status' datatype='integer' name='[lien_status]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Lien Status' datatype='integer' name='[lien_status]' role='dimension' type='ordinal' />
       <column caption='Lien Status Name' datatype='string' name='[lien_status_name]' role='dimension' type='nominal' />
       <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
-      <column caption='Loan Purpose' datatype='integer' name='[loan_purpose]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Loan Purpose' datatype='integer' name='[loan_purpose]' role='dimension' type='ordinal' />
       <column caption='Loan Purpose Name' datatype='string' name='[loan_purpose_name]' role='dimension' type='nominal' />
-      <column caption='Loan Type' datatype='integer' name='[loan_type]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Loan Type' datatype='integer' name='[loan_type]' role='dimension' type='ordinal' />
       <column caption='Loan Type Name' datatype='string' name='[loan_type_name]' role='dimension' type='nominal' />
-      <column caption='Minority Population' datatype='real' name='[minority_population]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Minority Population' datatype='real' name='[minority_population]' role='dimension' type='ordinal' />
       <column caption='Msamd' datatype='string' name='[msamd]' role='dimension' type='nominal' />
       <column caption='Msamd Name' datatype='string' name='[msamd_name]' role='dimension' type='nominal' />
       <column caption='Number Of 1 To 4 Family Units' datatype='integer' name='[number_of_1_to_4_family_units]' role='measure' type='quantitative' />
       <column caption='Number Of Owner Occupied Units' datatype='integer' name='[number_of_owner_occupied_units]' role='measure' type='quantitative' />
       <column caption='Owner Occupancy' datatype='integer' name='[owner_occupancy]' role='measure' type='quantitative' />
       <column caption='Owner Occupancy Name' datatype='string' name='[owner_occupancy_name]' role='dimension' type='nominal' />
-      <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
-      <column caption='Preapproval' datatype='integer' name='[preapproval]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Population' datatype='integer' name='[population]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Preapproval' datatype='integer' name='[preapproval]' role='dimension' type='ordinal' />
       <column caption='Preapproval Name' datatype='string' name='[preapproval_name]' role='dimension' type='nominal' />
-      <column caption='Property Type' datatype='integer' name='[property_type]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Property Type' datatype='integer' name='[property_type]' role='dimension' type='ordinal' />
       <column caption='Property Type Name' datatype='string' name='[property_type_name]' role='dimension' type='nominal' />
-      <column caption='Purchaser Type' datatype='integer' name='[purchaser_type]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Purchaser Type' datatype='integer' name='[purchaser_type]' role='dimension' type='ordinal' />
       <column caption='Purchaser Type Name' datatype='string' name='[purchaser_type_name]' role='dimension' type='nominal' />
       <column caption='Rate Spread' datatype='real' name='[rate_spread]' role='measure' type='quantitative' />
+      <column caption='Region Name' datatype='string' name='[region_name]' role='dimension' type='nominal' />
       <column caption='Respondent Id' datatype='integer' name='[respondent_id]' role='dimension' type='ordinal' />
       <column caption='Sequence Number' datatype='string' name='[sequence_number]' role='dimension' type='nominal' />
       <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Abbreviation' datatype='string' name='[state_abbreviation]' role='dimension' type='nominal' />
       <column caption='State Code' datatype='integer' name='[state_code]' role='dimension' type='ordinal' />
       <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
       <column caption='Tract To Msamd Income' datatype='real' name='[tract_to_msamd_income]' role='measure' type='quantitative' />
@@ -1353,11 +1512,178 @@
       <column-instance column='[Number of Records]' derivation='Avg' name='[avg:Number of Records:qk]' pivot='key' type='quantitative' />
       <column-instance column='[fraction_of_population]' derivation='Avg' name='[avg:fraction_of_population:qk]' pivot='key' type='quantitative' />
       <column-instance column='[loan_amount_000s]' derivation='Avg' name='[avg:loan_amount_000s:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk:1]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-field='' ordering-type='Field' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk:2]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' ordering-type='Field' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk:3]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-type='Field' type='CumTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk:4]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Avg' ordering-type='Field' type='CumTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk:5]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Avg' ordering-type='CellInPane' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_name]' ordering-type='Field' type='CumTotal' />
+      </column-instance>
       <column-instance column='[loan_amount_000s]' derivation='Sum' name='[cum:sum:loan_amount_000s:qk:4]' pivot='key' type='quantitative'>
         <table-calc aggregation='Sum' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='CumTotal' />
       </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk:1]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Field' type='Difference'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_name:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' />
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk:2]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' ordering-type='Field' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk:3]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-field='' ordering-type='Field' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk:4]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' ordering-type='Field' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk:5]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Field' type='Difference'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk:6]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Field' type='Difference'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk:7]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Field' type='Difference'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[diff:attr:fraction_of_population:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Columns' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
       <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
       <column-instance column='[applicant_race_name_1]' derivation='None' name='[none:applicant_race_name_1:nk]' pivot='key' type='nominal' />
+      <column-instance column='[region_name]' derivation='None' name='[none:region_name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[state_abbr]' derivation='None' name='[none:state_abbr:nk]' pivot='key' type='nominal' />
+      <column-instance column='[state_name]' derivation='None' name='[none:state_name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcdf:attr:fraction_of_population:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Field' type='PctDiff'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcrk:attr:fraction_of_population:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' rank-options='Competition,Ascending' type='PctRank'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:10]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:11]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:1]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_name:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:2]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:3]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:4]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:5]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_name]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:6]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:7]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:8]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk:9]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Pane' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[pcto:attr:fraction_of_population:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_name:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' />
+        </table-calc>
+      </column-instance>
       <column-instance column='[loan_amount_000s]' derivation='Avg' name='[pcto:avg:loan_amount_000s:qk]' pivot='key' type='quantitative'>
         <table-calc ordering-type='Rows' type='PctTotal' />
       </column-instance>
@@ -1373,9 +1699,36 @@
       <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk]' pivot='key' type='quantitative'>
         <table-calc ordering-type='Rows' type='PctTotal' />
       </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[rank:attr:fraction_of_population:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' rank-options='Competition,Descending' type='Rank'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[region_name]' />
+        </table-calc>
+      </column-instance>
       <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
       <column-instance column='[loan_amount_000s]' derivation='Sum' name='[sum:loan_amount_000s:qk]' pivot='key' type='quantitative' />
-      <layout dim-ordering='alphabetic' dim-percentage='0.465798' measure-ordering='alphabetic' measure-percentage='0.534202' show-structure='true' user-set-layout='true' />
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[win:attr:fraction_of_population:qk:1]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' from='-2' ordering-type='PaneCol' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[win:attr:fraction_of_population:qk:2]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' from='-2' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' ordering-type='Field' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[win:attr:fraction_of_population:qk:3]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' from='-2' ordering-type='Pane' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[win:attr:fraction_of_population:qk:4]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' from='-2' ordering-type='Field' to='0' type='WindowTotal' window-options='IncludeCurrent'>
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' />
+          <order field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_name]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[win:attr:fraction_of_population:qk:5]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' from='-2' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_name]' ordering-type='Field' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+      </column-instance>
+      <column-instance column='[fraction_of_population]' derivation='Attribute' name='[win:attr:fraction_of_population:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' from='-2' ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[state_abbr]' ordering-type='Field' to='0' type='WindowTotal' window-options='IncludeCurrent' />
+      </column-instance>
+      <layout dim-ordering='alphabetic' dim-percentage='0.423453' measure-ordering='alphabetic' measure-percentage='0.576547' show-structure='true' user-set-layout='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:agency_abbr:nk]' type='palette'>
@@ -1438,6 +1791,134 @@
             <map to='#f28e2b'>
               <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:fraction_of_population:qk]&quot;</bucket>
             </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:2]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:3]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:4]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:5]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk:2]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk:3]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk:4]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk:5]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk:6]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk:7]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[diff:attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcdf:attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcrk:attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:10]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:11]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:2]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:3]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:4]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:5]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:6]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:7]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:8]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk:9]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[rank:attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[win:attr:fraction_of_population:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[win:attr:fraction_of_population:qk:2]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[win:attr:fraction_of_population:qk:3]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[win:attr:fraction_of_population:qk:4]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[win:attr:fraction_of_population:qk:5]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[win:attr:fraction_of_population:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:region_name:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Chicago&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Dallas&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;San Francisco&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Kansas City&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;New York&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Atlanta&quot;</bucket>
+            </map>
           </encoding>
         </style-rule>
       </style>
@@ -1446,128 +1927,11 @@
       </semantic-values>
     </datasource>
   </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
   <worksheets>
-    <worksheet name='Agency Loans'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
-          </datasources>
-          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
-            <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
-              <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
-            </column>
-            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
-            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
-            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
-            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
-            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
-            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:2]' pivot='key' type='quantitative'>
-              <table-calc ordering-type='Columns' type='PctTotal' />
-            </column-instance>
-            <column-instance column='[Calculation_254734894758260736]' derivation='Year-Trunc' name='[tyr:Calculation_254734894758260736:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
-            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2009&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2010&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2011&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2013&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2014&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2015&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2020&quot;' />
-            </groupfilter>
-          </filter>
-          <slices>
-            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Area' />
-            <encodings>
-              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]' />
-            </encodings>
-          </pane>
-        </panes>
-        <rows>[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]</rows>
-        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</cols>
-      </table>
-    </worksheet>
-    <worksheet name='Loan Trends'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
-          </datasources>
-          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
-            <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
-              <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
-            </column>
-            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
-              <calculation class='tableau' formula='1' />
-            </column>
-            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
-            <column-instance column='[loan_amount_000s]' derivation='Avg' name='[avg:loan_amount_000s:qk]' pivot='key' type='quantitative' />
-            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
-            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_254734894758260736]' derivation='Year-Trunc' name='[tyr:Calculation_254734894758260736:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
-            <groupfilter from='&quot;2012&quot;' function='range' level='[none:as_of_year:nk]' to='&quot;2016&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
-            </encodings>
-          </pane>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
-            </encodings>
-          </pane>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
-            </encodings>
-          </pane>
-        </panes>
-        <rows>([federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk] + [federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk])</rows>
-        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</cols>
-      </table>
-    </worksheet>
-    <worksheet name='Sheet 1'>
+    <worksheet name='Aggregate All Records'>
       <table>
         <view>
           <datasources>
@@ -1610,22 +1974,11 @@
               <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;</bucket>
             </dictionary>
           </sort>
-          <filter class='quantitative' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]' included-values='non-null' />
           <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
-            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2009&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2010&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2011&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2013&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2014&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2015&quot;' />
-              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' />
-            </groupfilter>
+            <groupfilter function='level-members' level='[none:as_of_year:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</column>
-            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]</column>
             <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
           </slices>
           <aggregation value='true' />
@@ -1661,9 +2014,604 @@
         <percentages enabled='false' mode='column-in-pane' />
       </table>
     </worksheet>
+    <worksheet name='Average Loan Size - Map'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+            <column-instance column='[loan_amount_000s]' derivation='Avg' name='[avg:loan_amount_000s:qk]' pivot='key' type='quantitative' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region_name]' derivation='None' name='[none:region_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state_abbr]' derivation='None' name='[none:state_abbr:nk]' pivot='key' type='nominal' />
+            <column caption='Region Name' datatype='string' name='[region_name]' role='dimension' type='nominal' />
+            <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]'>
+            <groupfilter function='member' level='[none:agency_abbr:nk]' member='&quot;FDIC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Longitude (generated)]' field-type='quantitative' max='-7141328.9477179218' min='-14318118.597248102' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='1' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Latitude (generated)]' field-type='quantitative' fold='true' max='6712872.2403159058' min='2613307.2118431819' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Latitude (generated)]' field-type='quantitative' max='6712872.2403159058' min='2613307.2118431819' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' value='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' value='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' field-type='quantitative' max-size='1' min-size='0.00224644' type='rangesize' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Latitude (generated)]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]' />
+              <size column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2.4640884399414063' />
+                <format attr='mark-color' value='#ffffff' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#75a1c7' />
+                <format attr='mark-transparency' value='173' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Latitude (generated)]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' />
+              <text column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk]' />
+              <geometry column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2.3314917087554932' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1cyfii71ur71or1es0vig1bfnaf1].[Latitude (generated)] + [federated.1cyfii71ur71or1es0vig1bfnaf1].[Latitude (generated)])</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[Longitude (generated)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='FDIC Loans By Region Over Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
+              <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
+            </column>
+            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region_name]' derivation='None' name='[none:region_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+            <column caption='Region Name' datatype='string' name='[region_name]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_254734894758260736]' derivation='Year-Trunc' name='[tyr:Calculation_254734894758260736:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]'>
+            <groupfilter function='member' level='[none:agency_abbr:nk]' member='&quot;FDIC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2010&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2011&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2013&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2014&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2015&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]' included-values='non-null' />
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' scope='cols' value='Year' />
+            <format attr='subtitle' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' scope='cols' value='true' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='font-size' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' value='12' />
+            <format attr='font-weight' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' value='bold' />
+            <format attr='font-size' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' value='12' />
+            <format attr='font-weight' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' value='bold' />
+            <format attr='font-size' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]' value='12' />
+            <format attr='font-weight' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]' value='bold' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' />
+              <text column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='auto' />
+                <format attr='font-size' value='12' />
+                <format attr='font-weight' value='bold' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:2]</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='FDIC Loans Racial Demo By Region'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+            <column caption='Applicant Race Name 1' datatype='string' name='[applicant_race_name_1]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+            <column-instance column='[fraction_of_population]' derivation='Attribute' name='[attr:fraction_of_population:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[fraction_of_population]' derivation='Attribute' name='[cum:attr:fraction_of_population:qk:5]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Avg' ordering-type='CellInPane' type='CumTotal' />
+            </column-instance>
+            <column datatype='real' name='[fraction_of_population]' role='measure' type='quantitative' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[applicant_race_name_1]' derivation='None' name='[none:applicant_race_name_1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region_name]' derivation='None' name='[none:region_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[state_abbr]' derivation='None' name='[none:state_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[loan_amount_000s]' derivation='Sum' name='[pcto:sum:loan_amount_000s:qk:7]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[applicant_race_name_1]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column caption='Region Name' datatype='string' name='[region_name]' role='dimension' type='nominal' />
+            <column caption='State Abbr' datatype='string' name='[state_abbr]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:5]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:Number of Records:qk:2]&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:5]&quot;</bucket>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:loan_amount_000s:qk:7]&quot;</bucket>
+              <bucket>&quot;[federated.1cyfii71ur71or1es0vig1bfnaf1].[pcto:sum:Number of Records:qk:2]&quot;</bucket>
+            </dictionary>
+          </sort>
+          <filter class='quantitative' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]' included-values='non-null' />
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]'>
+            <groupfilter function='member' level='[none:agency_abbr:nk]' member='&quot;FDIC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[attr:fraction_of_population:qk]' value='p0.00%' />
+            <format attr='width' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' value='128' />
+            <format attr='text-format' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[cum:attr:fraction_of_population:qk:5]' value='p0.00%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk] / ([federated.1cyfii71ur71or1es0vig1bfnaf1].[none:state_abbr:nk] / [federated.1cyfii71ur71or1es0vig1bfnaf1].[none:applicant_race_name_1:nk]))</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</cols>
+        <percentages enabled='false' mode='column-in-pane' />
+      </table>
+    </worksheet>
+    <worksheet name='Loan Trends'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='hmda_lar+ (reference)' name='federated.1cyfii71ur71or1es0vig1bfnaf1' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cyfii71ur71or1es0vig1bfnaf1'>
+            <column caption='LoanDate' datatype='date' name='[Calculation_254734894758260736]' role='dimension' type='quantitative'>
+              <calculation class='tableau' formula='DATE([as_of_year]+&quot;-12-31&quot;)' />
+            </column>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Agency Abbr' datatype='string' name='[agency_abbr]' role='dimension' type='nominal' />
+            <column caption='As Of Year' datatype='string' datatype-customized='true' name='[as_of_year]' role='dimension' type='nominal' />
+            <column-instance column='[loan_amount_000s]' derivation='Avg' name='[avg:loan_amount_000s:qk]' pivot='key' type='quantitative' />
+            <column caption='Loan Amount 000S' datatype='integer' name='[loan_amount_000s]' role='measure' type='quantitative' />
+            <column-instance column='[agency_abbr]' derivation='None' name='[none:agency_abbr:nk]' pivot='key' type='nominal' />
+            <column-instance column='[as_of_year]' derivation='None' name='[none:as_of_year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_254734894758260736]' derivation='Year-Trunc' name='[tyr:Calculation_254734894758260736:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]'>
+            <groupfilter function='member' level='[none:agency_abbr:nk]' member='&quot;FDIC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2010&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2011&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2012&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2013&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2014&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2015&quot;' />
+              <groupfilter function='member' level='[none:as_of_year:nk]' member='&quot;2016&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</column>
+            <column>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' scope='cols' value='Year' />
+            <format attr='subtitle' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' scope='cols' value='true' />
+            <format attr='title' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]' scope='rows' value='Number of Loans' />
+            <format attr='subtitle' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='font-size' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' value='12' />
+            <format attr='font-weight' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]' value='bold' />
+            <format attr='font-weight' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]' value='bold' />
+            <format attr='font-size' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]' value='12' />
+            <format attr='font-size' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' value='12' />
+            <format attr='font-weight' field='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' value='bold' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+          </pane>
+        </panes>
+        <rows>([federated.1cyfii71ur71or1es0vig1bfnaf1].[sum:Number of Records:qk] + [federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk])</rows>
+        <cols>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</cols>
+      </table>
+    </worksheet>
   </worksheets>
+  <dashboards>
+    <dashboard name='Loan Dashboard'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97790' id='5' param='horz' type='layout-flow' w='98698' x='651' y='1105'>
+            <zone h='97790' id='3' type='layout-basic' w='85679' x='651' y='1105'>
+              <zone h='48895' id='1' name='Average Loan Size - Map' w='85679' x='651' y='1105'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='48895' id='10' name='FDIC Loans By Region Over Time' w='40276' x='651' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='48895' id='11' name='Loan Trends' w='45403' x='40927' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='97790' id='4' is-fixed='true' param='vert' type='layout-flow' w='13019' x='86330' y='1105'>
+              <zone h='20166' id='6' name='Average Loan Size - Map' pane-specification-id='2' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' type='color' w='13019' x='86330' y='1105'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='17403' id='7' name='Average Loan Size - Map' pane-specification-id='1' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' type='size' w='13019' x='86330' y='21271'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9116' id='12' name='Loan Trends' pane-specification-id='1' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' type='color' w='13019' x='86330' y='38674'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+    <window class='worksheet' maximized='true' name='Loan Trends'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='1' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='FDIC Loans By Region Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Average Loan Size - Map'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card size='31' type='pages' />
+            <card size='70' type='filters' />
+            <card size='256' type='marks' />
+            <card pane-specification-id='2' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:region_name:nk]' size='82' type='color' />
+            <card pane-specification-id='1' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[avg:loan_amount_000s:qk]' size='101' type='size' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+    </window>
+    <window class='dashboard' name='Loan Dashboard'>
+      <viewpoints>
+        <viewpoint name='Average Loan Size - Map'>
+          <zoom type='entire-view' />
+          <default-map-tool-selection tool='1' />
+        </viewpoint>
+        <viewpoint name='FDIC Loans By Region Over Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Loan Trends'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+    <window class='worksheet' name='FDIC Loans Racial Demo By Region'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='dropdown' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Aggregate All Records'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1690,851 +2638,6 @@
           </strip>
         </edge>
       </cards>
-      <viewpoint>
-        <highlight>
-          <color-one-way>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</field>
-          </color-one-way>
-        </highlight>
-      </viewpoint>
-    </window>
-    <window class='worksheet' name='Loan Trends'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' show-all='false' type='filter' />
-            <card pane-specification-id='1' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <viewpoint>
-        <highlight>
-          <color-one-way>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[:Measure Names]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_name:nk]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:Calculation_254734894758260736:ok]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:as_of_year:ok]</field>
-          </color-one-way>
-        </highlight>
-      </viewpoint>
-    </window>
-    <window class='worksheet' name='Agency Loans'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]' type='filter' />
-            <card pane-specification-id='0' param='[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <viewpoint>
-        <highlight>
-          <color-one-way>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:agency_abbr:nk]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:as_of_year:nk]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[none:location:nk]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[tyr:Calculation_254734894758260736:qk]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:Calculation_254734894758260736:ok]</field>
-            <field>[federated.1cyfii71ur71or1es0vig1bfnaf1].[yr:as_of_year:ok]</field>
-          </color-one-way>
-        </highlight>
-      </viewpoint>
     </window>
   </windows>
-  <thumbnails>
-    <thumbnail height='192' name='Agency Loans' width='192'>
-      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
-      Q9Di4oVFrMCj+w+YmJk+uJDnSBcqzEyWyasOpcufkXYts/OLeI4iDA3a0ey2Th2N2fl5SuUJ
-      +p2A7//4E9qNPktz04gIG5ub2KBHOAxWcmwCuPr1r2m2u3iO4re/+QInv8Ta3a9p9aCQz5FM
-      ZMmkxrtRErX44tff0A8iwm6V7+4uEwV1bt2+zVZfeHjtN7THb//cvPo1m802qZTH9a+/JhCX
-      u7ducOfOPZYfP+DW7dvU2v3x6orw5a+/oNfro6IeX12/iycBt27d5sHyY7745Zd0gmDsujbW
-      7vPtnWWCUNGoPmS13qb65CG3b9/m4fITrPJoNxtjl/vd1d+w2WijPJ/bV78gVAlu37rN7dt3
-      6HbbLN+7w2ZjvDWg1fs3uLO8RZTIsn7ra5pdw+P7d7h95zaRTpHSIVuNMZOSiPCbL7+k0+uR
-      cIWvvvgdrq+5dfsWd+4/olgsEXUbdIbP1mMbA5goGpjpui7WGBzHwVqDUs4wdozGccbTp4gQ
-      RRFKaRytMCJoNchBrLUDYlGOM3bAJWMirBUcx8Vag3YcrIkQUWjNzt/2m5Z7WV3NsAzX1Rhj
-      cbQmMgY1KBRRCm+f2aaXlmvtThkaEKVA7HAqUA9mWdyXhxDZD2sMZjhDsz1TY6IIQeG6DiIy
-      cgCEnTKteXpvsIN7b82gXTgOxlpcZ0z7fxGMGZThui5m2La224XWCmsF1x3MNMWD4JhzTewT
-      HHOuiQUQc66JBRBzICJCs9kiCnp0g4Nn5kQsG+vrGGtpt18+iG1UN3j8ZA17TD3xWAAxIyD8
-      7G/+ml/+4u+ptXvcu3effr/H3Tu36fT7bK6u0ugEBJ0G9x8us3rna/73//fnGAn4+7/7OQBP
-      lh/TDwPu37lNq9NlZfkxy2tb/MPf/i1P7n/D3/3qJo8f3GGzWuc//G//Mxu1Bo8f3KPVe4Vp
-      uzGIPcJiDkQpzU+/f5m/+tUGuat/w99+/YBPP/8Bd7/5JYW3vsfmjSf8xb/9b/jZ//d35FJJ
-      GoFhamYBZzh5Y+v3+PLLb1COy8r9W+TmLmGMwpWQop/h4+9/n//rr/6en33zmLo7Sd7tUXtw
-      jf/zb/4z7332e/yz3/v0yM4tFkDMSGTKc3xwyWMyW+ZSM0nJd2gtXCKXyzH32RQZ32Vmosyd
-      lSofvP82XZvH0ZpeY51vVxbwoi6l6QW6vSUqlSLJdAknaBI01vnr//h3fPLDT/ny530uVKYp
-      uWm6TppLF9/irQvjL7CNQzwNGnOuiccAMeea/wKg2q+tY64w1wAAAABJRU5ErkJggg==
-    </thumbnail>
-    <thumbnail height='192' name='Loan Trends' width='192'>
-      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
-    </thumbnail>
-    <thumbnail height='192' name='Sheet 1' width='192'>
-      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
-    </thumbnail>
-  </thumbnails>
 </workbook>
