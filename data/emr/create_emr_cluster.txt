@@ -1,0 +1,15 @@
+This is what I did. It works, but we need to tighten security. In particular this grants access to all of S3 (indicated below).
+
+Create a new EMR cluster. Most of the defaults are appropriate at the time I wrote this (20180405).
+
+* Software configuration - use Presto
+* Put a check in Use AWS Glue Data Catalog for table metadata
+
+* For Permissions, the default works, but it lets EMR go to town in S3. The EMR_EC2_DefaultRole grants full read access to S3. This would allow a Presto user to query all data. We'll need to create appropriate policies and assign them to roles for the purpose of a specific EMR cluster. Probably need to do the same thing with Redshift.
+
+Create the cluster...
+
+Now that the cluster is created, you can log into it using the key pair and the username "hadoop". The presto command line is pretty normal EXCEPT the executable is differnt. This left me confused for about a day. a sample command line is below. Note that schema is optional. You can leave it out and just use two part naming. The schema corresponds to the glue database.
+
+presto-cli --catalog hive --schema hmda
+
