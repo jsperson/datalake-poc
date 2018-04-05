@@ -1,0 +1,16 @@
+This is what I did. It works, but we need to tighten security. Note that you might have to try this a couple of times, but it's not that bad. Biggest pitfall I had was the security group that was blocking port 5439.
+
+Documentation for creating a basic Redshift cluster:
+https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
+
+Create an IAM role with the following policies:
+AmazonAthenaFullAccess
+AWSGlueConsoleFullAccess
+datalake-poc-full-bucket-read (code is in the github repository)
+
+Follow the documentation here to hook the role with an existing cluster:
+https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html
+
+Query with SQL Workbench:
+https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-prereq.html#rs-gsg-prereq-sql-client
+
