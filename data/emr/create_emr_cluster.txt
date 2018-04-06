@@ -4,6 +4,7 @@ Create a new EMR cluster. Most of the defaults are appropriate at the time I wro
 
 * Software configuration - use Presto
 * Put a check in Use AWS Glue Data Catalog for table metadata
+* Use a key pair that you have the private key for.
 
 * For Permissions, the default works, but it lets EMR go to town in S3. The EMR_EC2_DefaultRole grants full read access to S3. This would allow a Presto user to query all data. We'll need to create appropriate policies and assign them to roles for the purpose of a specific EMR cluster. Probably need to do the same thing with Redshift.
 
