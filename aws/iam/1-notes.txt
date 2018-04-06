@@ -1,0 +1,16 @@
+
+* User types and basic permissions
+Loaders - write access to the entire feed specific folder
+Developers- read access to raw; write to clean
+Readers - read access to raw and clean
+All users - write to their personal folder in /users/<username>
+
+Groups
+datalake-poc-hmda-loaders - granted datalake-poc-hmda-read, datalake-poc-hmda-full-write
+datalake-poc-hmda-developers - granted datalake-poc-hmda-read, datalak-poc-hmda-clean-only-write
+datalake-poc-hmda-readers - granted datalake-poc-hmda-read
+datalake-poc-users - granted AmazonAthenaFullAccess; datalake-poc-UserFolderAccess
+
+* Use IAM roles to control EMR access to S3
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-roles.html
+
