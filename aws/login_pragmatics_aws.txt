@@ -1,0 +1,9 @@
+Contact Scott Person or Keith Retter for credentials. They will create an account and send you login information.
+
+You will get a CSV file with a URL, a couple of API keys, and a password
+
+URL to sign in is: https://019672110497.signin.aws.amazon.com/console
+
+Go to that URL, use the password provided in the CSV and change it after login. Return to the URL at any time to get back into the console. Note that generally AWS does a good job of using the browser history to populate the login page when you return. Keep the above URL available should you need the account ID.
+
+
