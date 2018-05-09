@@ -2,7 +2,7 @@
    "Version":"2012-10-17",
    "Statement":[
       {
-         "Sid":"AllowRootAndHMDAListingOfDataLakeBucket",
+         "Sid":"VisualEditor0",
          "Effect":"Allow",
          "Action":"s3:ListBucket",
          "Resource":[
@@ -13,15 +13,15 @@
             "StringEquals":{
                "s3:prefix":[
                   "",
-                  "feeds/",
-                  "feeds/hmda/"
+                  "curated/",
+                  "curated/utility_tables"
                ],
                "s3:delimiter":"/"
             }
          }
       },
       {
-         "Sid":"AllowListingOfHMDAFolder",
+         "Sid":"VisualEditor1",
          "Effect":"Allow",
          "Action":"s3:ListBucket",
          "Resource":[
@@ -30,12 +30,12 @@
          ],
          "Condition":{
             "StringLike":{
-               "s3:prefix":"feeds/hmda/*"
+               "s3:prefix":"curated/utility_tables/*"
             }
          }
       },
       {
-         "Sid":"AllowUserReadOnHMDAFolder",
+         "Sid":"VisualEditor2",
          "Effect":"Allow",
          "Action":[
             "s3:ListBucketByTags",
@@ -71,17 +71,20 @@
             "s3:GetObjectVersion"
          ],
          "Resource":[
-            "arn:aws:s3:::datalake-poc-data/feeds/hmda/*",
-            "arn:aws:s3:::datalake-poc-data-encrypted/feeds/hmda/*"
+            "arn:aws:s3:::datalake-poc-data/curated/utility_tables/*",
+            "arn:aws:s3:::datalake-poc-data-encrypted/curated/utility_tables/*"
          ]
       },
       {
-         "Sid":"AllowUserTSeeBucketListInTheConsole",
+         "Sid":"VisualEditor3",
          "Effect":"Allow",
-         "Action":[
-            "s3:ListAllMyBuckets",
-            "s3:GetBucketLocation"
-         ],
+         "Action":"s3:GetBucketLocation",
+         "Resource":"arn:aws:s3:::*"
+      },
+      {
+         "Sid":"VisualEditor4",
+         "Effect":"Allow",
+         "Action":"s3:ListAllMyBuckets",
          "Resource":"arn:aws:s3:::*"
       }
    ]
