@@ -14,3 +14,6 @@ datalake-poc-users - granted AmazonAthenaFullAccess; datalake-poc-UserFolderAcce
 * Use IAM roles to control EMR access to S3
 https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-roles.html
 
+Modifications:
+20180509 - JSP - Added the encrypted data lake bucket to the policies
+
