@@ -1,0 +1,23 @@
+#next steps:
+#parameterize this
+#create the role to be used
+#see if we can upload the file to S3
+Description: Creates a Clue Job that converts a small set of fdic data to Orc.  This is just for demo purposes.  Before running this, you may want to make sure that the fdic Orc data is not being used.
+Resources:
+  FDICExportToOrc:
+    Type: "AWS::Glue::Job"
+    Properties:
+      Name: "FDICExport_net_charge_offs_1_4_family_residential_ToOrc"
+      Role: "AWSGlueServiceRole_datalake-poc-fdic-developers"
+      MaxRetries: 1
+      Description: Converts an arbitrary Glue CSV table into Orc
+      Command:
+        # DO NOT CHANGE NAME. CloudFormation docs are wrong. Use Glue API docs:
+        # http://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-JobCommand
+        Name: "glueetl"
+        ScriptLocation: "s3://datalake-poc-data/feeds/fdic/net_charge_offs_1_4_family_residential/scripts/fdic_convert_net_charge_offs_1_4_family_residential_to_orc_glue.py"
+      AllocatedCapacity: 10
+      ExecutionProperty:
+        MaxConcurrentRuns: 1
+      DefaultArguments:
+        "--TempDir": "s3://aws-glue-temporary-019672110497-us-east-1/feeds/fdic/net_charge_offs_1_4_family_residential"
