@@ -1,0 +1,26 @@
+[
+  {
+    "ParameterKey": "ScriptFolder",
+    "ParameterValue": "s3://datalake-poc-matt/feeds/hmda/hmda_lar/scripts"
+  },
+  {
+    "ParameterKey": "FeedName",
+    "ParameterValue": "hmda"
+  },
+  {
+    "ParameterKey": "LogFolder",
+    "ParameterValue": "s3://aws-logs-019672110497-us-east-1/datapipeline/"
+  },
+  {
+    "ParameterKey": "AMIImageId",
+    "ParameterValue": "ami-67cf2a19"
+  },
+  {
+    "ParameterKey": "EC2InstanceType",
+    "ParameterValue": "t2.micro"
+  },
+  {
+    "ParameterKey": "EC2KeyPair",
+    "ParameterValue": "FDICKeyPair"
+  }
+]

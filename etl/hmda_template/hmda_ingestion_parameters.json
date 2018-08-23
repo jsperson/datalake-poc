@@ -1,0 +1,6 @@
+{
+"incremental": "false",
+"targetBucket": "datalake-poc-matt",
+"limit": "100",
+"logGroup": "/datalake-poc-matt/feeds/hmda/hmda_lar/ingestion"
+}
