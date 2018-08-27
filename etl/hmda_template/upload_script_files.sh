@@ -11,6 +11,7 @@ aws s3 cp SupportIAMRoles_CreateStack.sh s3://datalake-poc-matt/feeds/hmda/hmda_
 aws s3 cp HMDAFileIngestionDataPipelines_CreateStack_Parameters.json s3://datalake-poc-matt/feeds/hmda/hmda_lar/scripts/deployment/HMDAFileIngestionDataPipelines_CreateStack_Parameters.json --profile datalake
 
 aws s3 cp upload_script_files.sh s3://datalake-poc-matt/feeds/hmda/hmda_lar/scripts/deployment/upload_script_files.sh --profile datalake
+aws s3 cp deploy.sh s3://datalake-poc-matt/feeds/hmda/hmda_lar/scripts/deployment/deploy.sh --profile datalake
 
 aws s3 cp hmda_convert_to_orc.sql s3://datalake-poc-matt/feeds/hmda/hmda_lar/scripts/hmda_convert_to_orc.sql --profile datalake
 aws s3 cp hmda_ingestion.py s3://datalake-poc-matt/feeds/hmda/hmda_lar/scripts/hmda_ingestion.py --profile datalake
