@@ -232,7 +232,7 @@ HC03_EST_VC52 String,
 HC03_MOE_VC52 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/csv/2010'
+LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/orc/2010'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_educational_attainment_2011 (
@@ -469,7 +469,7 @@ HC03_EST_VC52 String,
 HC03_MOE_VC52 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/csv/2011'
+LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/orc/2011'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_educational_attainment_2012 (
@@ -706,7 +706,7 @@ HC03_EST_VC52 String,
 HC03_MOE_VC52 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/csv/2012'
+LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/orc/2012'
 tblproperties ("orc.compress"="ZLIB");
 
 
@@ -944,7 +944,7 @@ HC03_EST_VC50 String,
 HC03_MOE_VC50 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/csv/2013'
+LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/orc/2013'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_educational_attainment_2014 (
@@ -1181,7 +1181,7 @@ HC03_EST_VC50 String,
 HC03_MOE_VC50 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/csv/2014'
+LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/orc/2014'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_educational_attainment_2015 (
@@ -1958,7 +1958,7 @@ HC06_EST_VC85 String,
 HC06_MOE_VC85 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/csv/2015'
+LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/orc/2015'
 tblproperties ("orc.compress"="ZLIB");
 
 
@@ -2736,5 +2736,5 @@ HC06_EST_VC85 String,
 HC06_MOE_VC85 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/csv/2016'
+LOCATION 's3://datalake-poc-data/feeds/census/educational_attainment/clean/orc/2016'
 tblproperties ("orc.compress"="ZLIB");
