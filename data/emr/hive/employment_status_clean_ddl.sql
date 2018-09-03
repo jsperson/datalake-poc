@@ -244,7 +244,7 @@ HC04_EST_VC45 String,
 HC04_MOE_VC45 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/csv/2010'
+LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/orc/2010'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_employment_status_2011 (
@@ -493,7 +493,7 @@ HC04_EST_VC45 String,
 HC04_MOE_VC45 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/csv/2011'
+LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/orc/2011'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_employment_status_2012 (
@@ -742,7 +742,7 @@ HC04_EST_VC45 String,
 HC04_MOE_VC45 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/csv/2012'
+LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/orc/2012'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_employment_status_2013 (
@@ -991,7 +991,7 @@ HC04_EST_VC44 String,
 HC04_MOE_VC44 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/csv/2013'
+LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/orc/2013'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_employment_status_2014 (
@@ -1240,7 +1240,7 @@ HC04_EST_VC44 String,
 HC04_MOE_VC44 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/csv/2014'
+LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/orc/2014'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_employment_status_2015 (
@@ -1529,7 +1529,7 @@ HC04_EST_VC47 String,
 HC04_MOE_VC47 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/csv/2015'
+LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/orc/2015'
 tblproperties ("orc.compress"="ZLIB");
 
 CREATE external table census_employment_status_2016 (
@@ -1818,5 +1818,5 @@ HC04_EST_VC47 String,
 HC04_MOE_VC47 String
 )
 STORED AS ORC
-LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/csv/2016'
+LOCATION 's3://datalake-poc-data/feeds/census/employment_status/clean/orc/2016'
 tblproperties ("orc.compress"="ZLIB");
